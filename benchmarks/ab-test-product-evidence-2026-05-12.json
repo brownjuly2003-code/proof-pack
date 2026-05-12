@@ -1,0 +1,107 @@
+{
+  "kind": "live · product",
+  "scope": "ab-test-research-designer",
+  "source_url": "https://liovina-ab-test-research-designer.hf.space",
+  "github_url": "https://github.com/brownjuly2003-code/AB_TEST",
+  "captured_at": "2026-05-10",
+  "page_generated_at": "2026-05-12",
+  "notes": [
+    "All numbers under `verified_product_output` are direct UI output from the live HuggingFace Space deployment, captured via Playwright on 2026-05-10.",
+    "The motivating `57%` headline is research-cited (Johari et al., KDD 2017, 'Peeking at A/B Tests'), not a product measurement. It is the reason the tool exists; it is not what the tool itself emits.",
+    "Trust-layer counts (tests, coverage gate) come from `D:\\AB_TEST` repository state as of HEAD 7a627459."
+  ],
+  "motivation": {
+    "headline_metric": "57%",
+    "what_it_means": "False-declaration rate of classical fixed-horizon A/B testing under continuous peeking, in simulation.",
+    "source": "Johari, Pekelis, Walsh, Koomen — 'Peeking at A/B Tests', KDD 2017. Cited via Optimizely Stats Engine whitepaper.",
+    "citation_url": "https://dl.acm.org/doi/pdf/10.1145/3314183.3323853",
+    "label": "literature · motivation, not product output"
+  },
+  "verified_product_output": {
+    "binary_canonical": {
+      "config": {
+        "metric_type": "Binary",
+        "metric_name": "purchase_conversion",
+        "baseline": 0.042,
+        "mde_pct": 7,
+        "alpha": 0.05,
+        "power": 0.8,
+        "variants": 2,
+        "traffic_split": "50/50",
+        "daily_traffic_effective": 7200,
+        "interim_analyses": 4
+      },
+      "live_estimate": {
+        "sample_size_per_variant": 75514,
+        "duration_days": 21
+      },
+      "group_sequential_obrien_fleming": {
+        "adjusted_sample_size_per_variant": 77402,
+        "boundaries": [
+          {"look": 1, "info_fraction": 0.25, "z_boundary": 4.05, "cumulative_alpha": 0.0001},
+          {"look": 2, "info_fraction": 0.50, "z_boundary": 2.86, "cumulative_alpha": 0.0056},
+          {"look": 3, "info_fraction": 0.75, "z_boundary": 2.34, "cumulative_alpha": 0.0236},
+          {"look": 4, "info_fraction": 1.00, "z_boundary": 2.02, "cumulative_alpha": 0.0500}
+        ]
+      },
+      "srm_check": {
+        "input_observed": [24500, 25500],
+        "input_expected": [25000, 25000],
+        "chi_square": 20,
+        "p_value": 8.0e-06,
+        "verdict": "SRM detected — check randomization or tracking"
+      }
+    },
+    "continuous_with_cuped_bayesian_multi_arm": {
+      "config": {
+        "metric_type": "Continuous",
+        "baseline_mean": 45.20,
+        "std_dev": 12,
+        "mde_pct": 5,
+        "variants": 4,
+        "traffic_split": "25/25/25/25",
+        "framework": "Bayesian",
+        "credibility": 0.95,
+        "desired_precision_units": 2,
+        "interim_analyses": 4,
+        "cuped_pre_experiment_std": 5,
+        "cuped_correlation": 0.5
+      },
+      "live_estimate_panel": {
+        "frequentist_sample_size_per_variant": 591,
+        "cuped_sample_size_per_variant": 443,
+        "cuped_variance_reduction_pct": 25,
+        "multi_arm_correction": "Bonferroni applied"
+      },
+      "report_cards": {
+        "cuped_adjusted_estimate": {
+          "before": 591,
+          "after": 443,
+          "delta_pct": -25,
+          "adjusted_std_dev": 10.3923,
+          "rho_squared": 0.25
+        },
+        "bayesian_estimate": {
+          "frequentist": 591,
+          "bayesian_95_interval": 277
+        },
+        "bayesian_posterior_plot": {
+          "target_sample_size_per_variant": 277,
+          "credibility": 0.95,
+          "interval_half_width_units": 2,
+          "distribution_range": [41.12, 49.28]
+        }
+      }
+    }
+  },
+  "trust_layer": {
+    "repo_head": "7a627459",
+    "backend_tests": 351,
+    "frontend_tests": "200+",
+    "coverage_gate_pct": 89,
+    "locales": 7,
+    "rtl_supported": true,
+    "stack": ["FastAPI", "React", "SQLite", "deterministic local-first", "Playwright E2E", "axe-checks"]
+  },
+  "public_safe_claim": "AB Test Research Designer turns a hypothesis into a launch-ready plan: live wizard emits sample size 75,514 / variant and 21 days for the canonical binary config; group-sequential O'Brien-Fleming boundaries (4.05 / 2.86 / 2.34 / 2.02) make interim looks safe; SRM detector catches a 49.0% / 51.0% split as χ² = 20, p ≈ 8·10⁻⁶; CUPED reduces continuous-metric sample size by 25% (591 → 443); Bayesian credible interval lands at 277 per variant. The 57% headline is the textbook reason the tool exists — Johari et al. KDD 2017 — not a self-measurement."
+}

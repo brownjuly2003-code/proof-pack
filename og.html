@@ -1,0 +1,71 @@
+<!doctype html>
+<html><head>
+<meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;background:#fff;font-family:'Inter',sans-serif;color:#0a0a0a;-webkit-font-smoothing:antialiased}
+.card{padding:64px;height:100%;display:flex;flex-direction:column;justify-content:space-between}
+.top{display:flex;justify-content:space-between;align-items:flex-start;font-family:'JetBrains Mono',monospace;font-size:14px;color:#525252;letter-spacing:.1em;text-transform:uppercase}
+.top .left{display:flex;align-items:center;gap:14px}
+.top .left::before{content:"";width:32px;height:1px;background:#0a0a0a}
+.title{font-size:128px;line-height:.92;letter-spacing:-.045em;font-weight:600;max-width:1080px;margin-top:32px}
+.title em{font-style:normal;color:#737373}
+.shelf{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#e5e5e5;border:1px solid #e5e5e5}
+.shelf > div{background:#fff;padding:24px 22px;min-width:0}
+.tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;margin-bottom:10px}
+.tag.live{background:#dcfce7;color:#0a5d28}
+.tag.oracle{background:#fef3c7;color:#92400e}
+.tag.sim{background:#dbeafe;color:#1e3a8a}
+.n{font-size:48px;line-height:1;letter-spacing:-.035em;font-weight:600;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.n .pct{font-size:28px;color:#737373;margin-left:2px;font-weight:500}
+.n .arr{display:inline-block;font-size:22px;color:#737373;margin:0 4px;vertical-align:6px;font-weight:500}
+.lab{font-size:11px;line-height:1.35;color:#525252;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
+.foot{display:flex;justify-content:space-between;align-items:flex-end;font-family:'JetBrains Mono',monospace;font-size:14px;color:#525252;letter-spacing:.04em}
+.foot .name{font-family:'Inter',sans-serif;font-size:32px;font-weight:600;letter-spacing:-.02em;color:#0a0a0a;text-transform:none;margin-bottom:2px}
+.foot .role{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#737373}
+.foot .url{font-size:14px;letter-spacing:.04em;color:#0a0a0a}
+</style></head>
+<body>
+<div class="card">
+  <div class="top">
+    <div class="left">PROOF PACK · 2026-05-12</div>
+    <div>FOUR DATA / AI PROJECTS · MEASURED</div>
+  </div>
+
+  <div>
+    <div class="title">Measured <em>before</em><br>believed.</div>
+  </div>
+
+  <div class="shelf">
+    <div>
+      <span class="tag live">live · product</span>
+      <div class="n">57<span class="pct">%</span></div>
+      <div class="lab">false-positive risk · AB_TEST</div>
+    </div>
+    <div>
+      <span class="tag live">live · load</span>
+      <div class="n">14<span class="pct">ms</span></div>
+      <div class="lab">p50 · 506 reqs · 0 fail · DE</div>
+    </div>
+    <div>
+      <span class="tag oracle">offline · oracle</span>
+      <div class="n">0.99</div>
+      <div class="lab">citation_accuracy · 29-case · RAG</div>
+    </div>
+    <div>
+      <span class="tag sim">simulation</span>
+      <div class="n">1.00</div>
+      <div class="lab">unstable-claim detect · 35 · GraceKelly</div>
+    </div>
+  </div>
+
+  <div class="foot">
+    <div>
+      <div class="name">Julia Edomskikh</div>
+      <div class="role">Senior Data Analyst · Data Engineer</div>
+    </div>
+    <div class="url">proof-pack-eight.vercel.app</div>
+  </div>
+</div>
+</body></html>
