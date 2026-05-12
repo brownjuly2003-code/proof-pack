@@ -1,0 +1,617 @@
+{
+  "kind": "offline_oracle",
+  "scope": "rag-grounded-benchmark",
+  "source_repo": "D:\\RAG_Support_Assistant",
+  "generated_at": "2026-05-12T05:06:20",
+  "num_cases": 29,
+  "aggregate": {
+    "recall_at_5": 1.0,
+    "citation_coverage": 1.0,
+    "citation_accuracy": 0.9861,
+    "faithfulness": 0.7069,
+    "answer_relevancy": 0.2469,
+    "context_precision": 0.2105,
+    "context_recall": 0.9138,
+    "escalation_accuracy": 1.0,
+    "route_distribution": {
+      "auto": 21,
+      "human": 8,
+      "retry": 0,
+      "error": 0
+    },
+    "by_category": {
+      "warranty": {
+        "n": 5,
+        "recall_at_5": 1.0,
+        "citation_coverage": 1.0,
+        "citation_accuracy": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.17,
+        "escalation_accuracy": 1.0
+      },
+      "returns": {
+        "n": 4,
+        "recall_at_5": 1.0,
+        "citation_coverage": 1.0,
+        "citation_accuracy": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.4188,
+        "escalation_accuracy": 1.0
+      },
+      "error_codes": {
+        "n": 5,
+        "recall_at_5": 1.0,
+        "citation_coverage": 1.0,
+        "citation_accuracy": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.4033,
+        "escalation_accuracy": 1.0
+      },
+      "installation": {
+        "n": 2,
+        "recall_at_5": 1.0,
+        "citation_coverage": 1.0,
+        "citation_accuracy": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.125,
+        "escalation_accuracy": 1.0
+      },
+      "billing": {
+        "n": 2,
+        "recall_at_5": 1.0,
+        "citation_coverage": 1.0,
+        "citation_accuracy": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.1666,
+        "escalation_accuracy": 1.0
+      },
+      "general": {
+        "n": 1,
+        "recall_at_5": 1.0,
+        "citation_coverage": 1.0,
+        "citation_accuracy": 1.0,
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.0,
+        "escalation_accuracy": 1.0
+      },
+      "multi_hop": {
+        "n": 2,
+        "recall_at_5": 1.0,
+        "citation_coverage": 1.0,
+        "citation_accuracy": 0.8334,
+        "faithfulness": 0.5,
+        "answer_relevancy": 0.4921,
+        "escalation_accuracy": 1.0
+      },
+      "contradiction_trap": {
+        "n": 3,
+        "recall_at_5": null,
+        "citation_coverage": null,
+        "citation_accuracy": 1.0,
+        "faithfulness": 0.1667,
+        "answer_relevancy": 0.2167,
+        "escalation_accuracy": 1.0
+      },
+      "off_topic": {
+        "n": 4,
+        "recall_at_5": null,
+        "citation_coverage": null,
+        "citation_accuracy": null,
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "escalation_accuracy": 1.0
+      },
+      "insufficient_data": {
+        "n": 1,
+        "recall_at_5": null,
+        "citation_coverage": null,
+        "citation_accuracy": null,
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.4,
+        "escalation_accuracy": 1.0
+      }
+    }
+  },
+  "per_case": [
+    {
+      "case_id": "warranty-period-12-months",
+      "category": "warranty",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.25,
+        "context_precision": 0.292,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Стандартный гарантийный срок 12 месяцев с даты покупки [1]. Расширенная гарантия добавляет ещё 24 месяца [2]."
+    },
+    {
+      "case_id": "warranty-claim-steps",
+      "category": "warranty",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.1277,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Для гарантийного обращения сохраните чек, отнесите устройство в сервисный центр и заполните заявление [1]. Адреса сервисных центров доступны на сайте [3]."
+    },
+    {
+      "case_id": "warranty-exclusions",
+      "category": "warranty",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.1752,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Гарантия не покрывает механические повреждения, попадание жидкости и самостоятельный ремонт [1]."
+    },
+    {
+      "case_id": "warranty-receipt-storage",
+      "category": "warranty",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.4,
+        "context_precision": 0.1825,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Чек требуется на весь срок гарантии — храните его не менее 12 месяцев [2][1]."
+    },
+    {
+      "case_id": "warranty-no-receipt",
+      "category": "warranty",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.2,
+        "context_precision": 0.2211,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "При утере чека обратитесь в поддержку или сервисный центр и предоставьте серийный номер устройства [1]."
+    },
+    {
+      "case_id": "returns-window-14-days",
+      "category": "returns",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.875,
+        "context_precision": 0.4686,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Товар надлежащего качества можно вернуть в течение 14 дней с момента покупки [1]."
+    },
+    {
+      "case_id": "returns-refund-timeline",
+      "category": "returns",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.1825,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Деньги возвращаются на ту же карту в течение 10 рабочих дней после приёмки товара [1]."
+    },
+    {
+      "case_id": "returns-different-card",
+      "category": "returns",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.4,
+        "context_precision": 0.1971,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Возврат производится только на ту же карту, с которой была проведена оплата [1]."
+    },
+    {
+      "case_id": "returns-no-packaging",
+      "category": "returns",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.4,
+        "context_precision": 0.3566,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Возврат принимается только при сохранении товарного вида и оригинальной упаковки [1]."
+    },
+    {
+      "case_id": "error-e10-water",
+      "category": "error_codes",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.5,
+        "context_precision": 0.3358,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Ошибка E10 связана с подачей воды — проверьте шланг, кран и фильтр [1]."
+    },
+    {
+      "case_id": "error-e20-drain",
+      "category": "error_codes",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.1667,
+        "context_precision": 0.1251,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Ошибка E20 чаще всего означает проблему со сливом: засор фильтра, неисправность насоса или перегиб шланга [1]."
+    },
+    {
+      "case_id": "error-e25-reset",
+      "category": "error_codes",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.5,
+        "context_precision": 0.1752,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Сбросьте ошибку E25 перезагрузкой: отключите питание на 30 секунд и включите снова [1]."
+    },
+    {
+      "case_id": "error-e30-service",
+      "category": "error_codes",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.6,
+        "context_precision": 0.3128,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "При ошибке E30 немедленно отключите устройство от сети и обратитесь в сервисный центр [1]."
+    },
+    {
+      "case_id": "error-e20-vs-pump",
+      "category": "error_codes",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.25,
+        "context_precision": 0.18,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "После очистки фильтра вода уходит — это был засор; если насос гудит, но не качает — это его неисправность [2][1]."
+    },
+    {
+      "case_id": "install-windows",
+      "category": "installation",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.219,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Скачайте .exe-инсталлятор с официального сайта и запустите установку, следуя мастеру [1]."
+    },
+    {
+      "case_id": "install-system-requirements",
+      "category": "installation",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.25,
+        "context_precision": 0.219,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Минимальные требования: 4 ГБ ОЗУ, 500 МБ свободного места и Windows 10 или новее [1]."
+    },
+    {
+      "case_id": "billing-cancel-subscription",
+      "category": "billing",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.3333,
+        "context_precision": 0.3504,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Откройте настройки тарифа, выберите текущую подписку и подтвердите отмену автопродления [1]."
+    },
+    {
+      "case_id": "billing-update-card",
+      "category": "billing",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.365,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "В разделе биллинга добавьте новую карту и назначьте её основной [1]."
+    },
+    {
+      "case_id": "general-contact-support",
+      "category": "general",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.3504,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Через чат в приложении или по электронной почте, указанной в разделе контактов [1]."
+    },
+    {
+      "case_id": "multi-hop-warranty-after-return-window",
+      "category": "multi_hop",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 1.0,
+        "answer_relevancy": 0.4286,
+        "context_precision": 0.146,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Окно возврата — 14 дней [1], но гарантия остаётся 12 месяцев с даты покупки [2]."
+    },
+    {
+      "case_id": "multi-hop-e20-then-service",
+      "category": "multi_hop",
+      "expected_route": "auto",
+      "predicted_route": "auto",
+      "recall_at_5": 1.0,
+      "citation_coverage": 1.0,
+      "citation_accuracy": 0.6667,
+      "ragas": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.5556,
+        "context_precision": 0.0803,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Если E20 не уходит после очистки, вероятна поломка насоса [2][1] — обратитесь в авторизованный сервисный центр [3]."
+    },
+    {
+      "case_id": "contradiction-warranty-duration",
+      "category": "contradiction_trap",
+      "expected_route": "human",
+      "predicted_route": "human",
+      "recall_at_5": null,
+      "citation_coverage": null,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.2,
+        "context_precision": 0.2464,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "В источниках есть противоречие: 12 месяцев [1] против 24 месяцев на устаревшие модели [2]. Уточните модель устройства или обратитесь в поддержку — ответить однозначно нельзя."
+    },
+    {
+      "case_id": "contradiction-return-window",
+      "category": "contradiction_trap",
+      "expected_route": "human",
+      "predicted_route": "human",
+      "recall_at_5": null,
+      "citation_coverage": null,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 0.5,
+        "answer_relevancy": 0.2,
+        "context_precision": 0.438,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Источники противоречат друг другу: 14 дней по общему правилу [1] и 30 дней по промо-акции декабря 2024 [2]. Ответить нельзя без проверки даты покупки — обратитесь в поддержку."
+    },
+    {
+      "case_id": "contradiction-refund-card",
+      "category": "contradiction_trap",
+      "expected_route": "human",
+      "predicted_route": "human",
+      "recall_at_5": null,
+      "citation_coverage": null,
+      "citation_accuracy": 1.0,
+      "ragas": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.25,
+        "context_precision": 0.217,
+        "context_recall": 1.0
+      },
+      "escalation_correct": 1,
+      "answer": "Общее правило — возврат на ту же карту [1], но при закрытой карте поддержка может оформить возврат на новые реквизиты после верификации [2]. Однозначного ответа без обращения в поддержку нет — обратитесь в поддержку."
+    },
+    {
+      "case_id": "off-topic-wifi",
+      "category": "off_topic",
+      "expected_route": "human",
+      "predicted_route": "human",
+      "recall_at_5": null,
+      "citation_coverage": null,
+      "citation_accuracy": null,
+      "ragas": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0219,
+        "context_recall": 0.5
+      },
+      "escalation_correct": 1,
+      "answer": "В предоставленных источниках нет инструкций по настройке Wi-Fi — ответить нельзя, обратитесь в поддержку."
+    },
+    {
+      "case_id": "off-topic-price",
+      "category": "off_topic",
+      "expected_route": "human",
+      "predicted_route": "human",
+      "recall_at_5": null,
+      "citation_coverage": null,
+      "citation_accuracy": null,
+      "ragas": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0426,
+        "context_recall": 0.5
+      },
+      "escalation_correct": 1,
+      "answer": "Цена не указана в доступных источниках — ответить нельзя, обратитесь в поддержку."
+    },
+    {
+      "case_id": "off-topic-delivery",
+      "category": "off_topic",
+      "expected_route": "human",
+      "predicted_route": "human",
+      "recall_at_5": null,
+      "citation_coverage": null,
+      "citation_accuracy": null,
+      "ragas": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0219,
+        "context_recall": 0.5
+      },
+      "escalation_correct": 1,
+      "answer": "Условия доставки в источниках не описаны — ответить нельзя, обратитесь в поддержку."
+    },
+    {
+      "case_id": "off-topic-weather",
+      "category": "off_topic",
+      "expected_route": "human",
+      "predicted_route": "human",
+      "recall_at_5": null,
+      "citation_coverage": null,
+      "citation_accuracy": null,
+      "ragas": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.0,
+        "context_precision": 0.0182,
+        "context_recall": 0.5
+      },
+      "escalation_correct": 1,
+      "answer": "Вопрос вне зоны поддержки и не покрыт источниками — ответить нельзя, обратитесь в поддержку."
+    },
+    {
+      "case_id": "insufficient-data-model-specific",
+      "category": "insufficient_data",
+      "expected_route": "human",
+      "predicted_route": "human",
+      "recall_at_5": null,
+      "citation_coverage": null,
+      "citation_accuracy": null,
+      "ragas": {
+        "faithfulness": 0.0,
+        "answer_relevancy": 0.4,
+        "context_precision": 0.0365,
+        "context_recall": 0.5
+      },
+      "escalation_correct": 1,
+      "answer": "В предоставленных источниках нет спецификации модели X-500 — ответить нельзя, обратитесь в поддержку."
+    }
+  ],
+  "notes": [
+    "Oracle answers are hand-crafted with [N] citations referencing retrieved_docs by 1-based index.",
+    "Retrieval is simulated: retrieved_docs are provided per case (no live vector store).",
+    "Faithfulness/relevancy use the keyword-based fallback inside evaluation/ragas_eval.py.",
+    "Escalation route is detected via Russian escalation markers in the answer text.",
+    "This proves retrieval/citation discipline of the harness, not live LLM answer quality."
+  ]
+}

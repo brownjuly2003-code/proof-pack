@@ -1,0 +1,400 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proof Pack — Julia Edomskikh, Data / AI</title>
+<meta name="description" content="Четыре data/AI-продукта с честными measured-proof артефактами: latency benchmark, offline grounded oracle, claim-set simulation, experiment risk metrics. Каждое число имеет область применения.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' font-family='Inter,sans-serif' font-size='18' font-weight='700' fill='%23fff' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0a0a0a;
+  --ink-2:#1f1f1f;
+  --muted:#525252;
+  --muted-2:#737373;
+  --line:#e5e5e5;
+  --line-soft:#f0f0f0;
+  --surface:#fafafa;
+  --surface-2:#f5f5f5;
+  --accent:#2563eb;
+  --green:#0f8a3d;
+  --amber:#a16207;
+  --bg:#ffffff;
+  --tab:"tnum" 1,"lnum" 1;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
+  font-size:16px;line-height:1.6;color:var(--ink);background:var(--bg);
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  font-feature-settings:"ss01","cv11";
+}
+::selection{background:var(--ink);color:#fff}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+a:hover{border-bottom-color:var(--ink)}
+.mono{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace}
+.num{font-feature-settings:var(--tab);font-variant-numeric:tabular-nums lining-nums}
+
+/* ---------- Top bar ---------- */
+.bar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+.bar-row{max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:24px;font-size:13px}
+.bar a{border:none}
+.bar-name{font-weight:600;letter-spacing:-.01em}
+.bar-role{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
+.bar-nav{margin-left:auto;display:flex;gap:22px;color:var(--muted)}
+.bar-nav a:hover{color:var(--ink)}
+@media(max-width:760px){.bar-row{padding:12px 20px;gap:14px}.bar-nav{display:none}.bar-role{display:none}}
+
+/* ---------- Wrapper ---------- */
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+@media(max-width:760px){.wrap{padding:0 20px}}
+
+/* ---------- Hero ---------- */
+.hero{padding:120px 0 80px;border-bottom:1px solid var(--line)}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:32px;display:flex;align-items:center;gap:14px}
+.hero-eyebrow::before{content:"";width:32px;height:1px;background:var(--ink)}
+.hero h1{font-size:clamp(48px,7vw,96px);line-height:.96;letter-spacing:-.045em;font-weight:600;margin:0 0 28px;max-width:920px}
+.hero h1 em{font-style:normal;color:var(--muted-2)}
+.hero-lede{font-size:20px;line-height:1.5;color:var(--ink-2);max-width:760px;margin:0 0 56px}
+@media(max-width:760px){.hero{padding:64px 0 56px}.hero-lede{font-size:17px;margin-bottom:40px}}
+
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.hero-grid > div{background:#fff;padding:28px 24px;min-width:0;overflow-wrap:anywhere}
+.hg-num{font-size:36px;line-height:1.05;letter-spacing:-.03em;font-weight:600;margin-bottom:6px}
+.hg-num .pct{font-size:22px;color:var(--muted);margin-left:2px}
+.hg-lab{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em}
+@media(max-width:900px){.hero-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- Section ---------- */
+.section{padding:96px 0 32px;border-bottom:1px solid var(--line)}
+.section:last-of-type{border-bottom:none}
+.sec-head{display:flex;gap:48px;margin-bottom:48px;flex-wrap:wrap}
+.sec-no{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);letter-spacing:.06em;padding-top:6px;min-width:48px}
+.sec-title{flex:1;min-width:260px}
+.sec-title .role{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:14px}
+.sec-title h2{font-size:clamp(34px,4.6vw,52px);line-height:1.04;letter-spacing:-.025em;font-weight:600;margin:0 0 18px}
+.sec-title .claim{font-size:18px;color:var(--ink-2);max-width:680px;line-height:1.55;margin:0}
+.sec-links{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;padding-top:6px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--ink);border-radius:999px;font-size:13px;font-weight:500;color:var(--ink);border-bottom-color:var(--ink);background:#fff;transition:background .15s}
+.pill:hover{background:var(--ink);color:#fff;border-bottom-color:var(--ink)}
+.pill.primary{background:var(--ink);color:#fff}
+.pill.primary:hover{background:#fff;color:var(--ink)}
+.pill .arr{font-size:11px}
+
+/* hero row inside each section */
+.proof-row{display:grid;grid-template-columns:minmax(220px,1.1fr) minmax(0,2.1fr);gap:48px;margin-bottom:48px;align-items:start}
+@media(max-width:760px){.proof-row{grid-template-columns:1fr;gap:24px}}
+.proof-num{font-size:clamp(64px,11vw,128px);line-height:.92;letter-spacing:-.05em;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
+.proof-num .unit{font-size:.35em;color:var(--muted);font-weight:500;letter-spacing:-.02em;margin-left:6px}
+.proof-num .arrow{display:inline-block;font-size:.4em;color:var(--muted);margin:0 .15em;vertical-align:.18em}
+.proof-num small{display:block;font-size:13px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.04em;text-transform:uppercase;margin-top:14px;font-weight:400}
+.proof-copy p{margin:0 0 18px;font-size:17px;line-height:1.6;color:var(--ink-2)}
+.proof-copy p:last-child{margin-bottom:0}
+.proof-copy strong{font-weight:600;color:var(--ink)}
+
+/* metric tiles */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:32px}
+.tiles > div{background:#fff;padding:22px 20px;min-width:0;overflow-wrap:anywhere}
+.tile-num{font-size:30px;line-height:1.05;letter-spacing:-.025em;font-weight:600;margin-bottom:4px}
+.tile-num .acc{color:var(--accent)}
+.tile-lab{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em;line-height:1.4}
+@media(max-width:900px){.tiles{grid-template-columns:repeat(2,1fr)}}
+
+/* scope/caveat */
+.scope{border-left:2px solid var(--ink);padding:6px 0 6px 18px;margin:0 0 14px}
+.scope-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);padding:3px 8px;border-radius:3px;margin-bottom:8px}
+.scope-tag.live{background:#dcfce7;color:#0a5d28}
+.scope-tag.oracle{background:#fef3c7;color:#92400e}
+.scope-tag.sim{background:#dbeafe;color:#1e3a8a}
+.scope p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
+
+.cmd{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px;overflow-x:auto;color:var(--ink-2);line-height:1.55;white-space:pre;margin:14px 0 0}
+
+/* ---------- Footer ---------- */
+.foot{padding:80px 0 56px;background:var(--ink);color:#fff;margin-top:0}
+.foot a{color:#fff;border-bottom-color:#404040}
+.foot a:hover{border-bottom-color:#fff}
+.foot-row{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-bottom:48px}
+.foot-row > div{min-width:0;overflow-wrap:anywhere}
+@media(max-width:760px){.foot-row{grid-template-columns:repeat(2,1fr);gap:24px}.foot{padding:56px 0 40px}}
+.foot h4{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#a3a3a3;margin:0 0 12px;font-weight:500;font-family:'JetBrains Mono',monospace}
+.foot ul{list-style:none;padding:0;margin:0;font-size:14px;line-height:1.7}
+.foot-name{font-size:48px;line-height:1;letter-spacing:-.03em;font-weight:600;margin:0 0 8px}
+.foot-role{color:#a3a3a3;font-size:14px}
+.foot-meta{border-top:1px solid #262626;padding-top:24px;font-size:12px;color:#737373;font-family:'JetBrains Mono',monospace;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* small util */
+.sub{color:var(--muted);font-size:13px}
+.hl{color:var(--accent);font-weight:600}
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-row">
+    <span class="bar-name">Julia Edomskikh</span>
+    <span class="bar-role">Senior Data Analyst · DE</span>
+    <nav class="bar-nav">
+      <a href="#abtest">AB_TEST</a>
+      <a href="#de">DE_project</a>
+      <a href="#rag">RAG</a>
+      <a href="#gracekelly">GraceKelly</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow">Proof Pack · 2026-05-12</div>
+    <h1>Measured <em>before</em> believed.</h1>
+    <p class="hero-lede">Четыре data/AI-проекта, у которых сначала появилось измерение и только потом — публичная формулировка. Каждое число на этой странице имеет область применения: live, offline-oracle или simulation. Ничего, что не было измерено, на этой странице не заявлено.</p>
+
+    <div class="hero-grid">
+      <div>
+        <div class="hg-num num">57<span class="pct">%</span></div>
+        <div class="hg-lab">false-positive risk caught before launch · AB_TEST</div>
+      </div>
+      <div>
+        <div class="hg-num num">14<span class="pct">ms</span></div>
+        <div class="hg-lab">aggregate p50, 506 requests, 0 failures · DE_project</div>
+      </div>
+      <div>
+        <div class="hg-num num">0.99</div>
+        <div class="hg-lab">citation_accuracy · 29-case offline oracle · RAG</div>
+      </div>
+      <div>
+        <div class="hg-num num">1.00</div>
+        <div class="hg-lab">unstable-claim detection · 35-case simulation · GraceKelly</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 01 AB_TEST ============ -->
+<section class="section" id="abtest">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">01 / 04</div>
+      <div class="sec-title">
+        <div class="role">Product / Data Analyst — pre-launch experiment design</div>
+        <h2>AB Test Research Designer</h2>
+        <p class="claim">Experiments deserve engineering. Не sample-size calculator, а research-design слой до платформы экспериментов: peeking, SRM, multi-arm risk, CUPED и guardrails ловятся до того, как команда нажмёт Launch.</p>
+      </div>
+      <div class="sec-links">
+        <a class="pill primary" href="https://github.com/brownjuly2003-code/AB_TEST" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+      </div>
+    </div>
+
+    <div class="proof-row">
+      <div class="proof-num num">57<span class="unit">%</span><small>FALSE-POSITIVE RATE on A/A · peeking + multi-comparisons</small></div>
+      <div class="proof-copy">
+        <p>Платный sample-size инструмент проводит A/A-тест на идентичных страницах и помечает «победу» в 57% случаев. Это не баг UI — это то, что происходит, когда дизайн эксперимента позволяет peeking и multiple-comparisons протечь в решение.</p>
+        <p>AB Test Research Designer превращает гипотезу в launch-ready план: baseline и MDE становятся sample size и duration; group-sequential boundaries делают промежуточные взгляды безопасными; SRM check останавливает сломанную рандомизацию ещё до анализа; CUPED и Bayesian карточки показывают цену точности.</p>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div><div class="tile-num num">75 514</div><div class="tile-lab">sample / variant · MDE 1%</div></div>
+      <div><div class="tile-num num">21<span class="sub mono"> дн</span></div><div class="tile-lab">trial duration · group-sequential</div></div>
+      <div><div class="tile-num num">χ²=20</div><div class="tile-lab">SRM · p ≈ 8·10⁻⁶</div></div>
+      <div><div class="tile-num num">−25<span class="pct">%</span></div><div class="tile-lab">sample size via CUPED</div></div>
+    </div>
+
+    <div class="scope">
+      <span class="scope-tag live">live · product</span>
+      <p>Числа взяты из живого продукта: deterministic SQLite-backed расчёты, 350+ backend tests, 200+ frontend tests, axe-checks, 89% coverage gate, 7 локалей включая RTL.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 DE_project ============ -->
+<section class="section" id="de">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">02 / 04</div>
+      <div class="sec-title">
+        <div class="role">Data Engineer — real-time entity context для AI-агентов</div>
+        <h2>DE_project / AgentFlow</h2>
+        <p class="claim">AI-агент не должен ждать вчерашний DWH. История — collapse latency: entity context из заметного человеком ожидания превращается в machine-speed lookup.</p>
+      </div>
+      <div class="sec-links">
+        <a class="pill primary" href="https://github.com/brownjuly2003-code/DE_project" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+        <a class="pill" href="benchmarks/de_project-benchmark-2026-05-12.md" target="_blank">Benchmark <span class="arr">↗</span></a>
+      </div>
+    </div>
+
+    <div class="proof-row">
+      <div class="proof-num num">26 000<span class="arrow">→</span>14<span class="unit">ms</span><small>aggregate p50 · 506 requests · 0 failures · 50 users / 60s</small></div>
+      <div class="proof-copy">
+        <p>Stream-ingest питает semantic-слой, типизированные контракты выставляют entity lookup, Python/TS SDK держат клиентов синхронизированными, NL-to-SQL проходит через sqlglot AST-валидацию перед выполнением.</p>
+        <p>Свежий локальный benchmark от 2026-05-12 поверх DuckDB: aggregate <strong>p50 14ms</strong>, <strong>p99 280ms</strong>, entity endpoints держатся в <strong>p50 11-14ms</strong>, p99 ≤ 330ms; <code class="mono">scripts/check_performance.py</code> вернул <strong>PASS</strong> против baseline.</p>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div><div class="tile-num num"><span class="acc">14</span><span class="sub mono"> ms</span></div><div class="tile-lab">aggregate p50</div></div>
+      <div><div class="tile-num num">280<span class="sub mono"> ms</span></div><div class="tile-lab">aggregate p99</div></div>
+      <div><div class="tile-num num">330<span class="sub mono"> ms</span></div><div class="tile-lab">worst entity p99</div></div>
+      <div><div class="tile-num num">0</div><div class="tile-lab">failures · gate PASS</div></div>
+    </div>
+
+    <div class="scope">
+      <span class="scope-tag live">live · load benchmark</span>
+      <p>Locust 50 users, spawn rate 10/s, 60s, поверх свежей DuckDB-выборки. <code class="mono">tests/load/locustfile.py</code>. Сравнение с release-gate, не с маркетинговой копией.</p>
+      <pre class="cmd">python scripts/run_benchmark.py --users 50 --spawn-rate 10 --run-time 60s</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 RAG ============ -->
+<section class="section" id="rag">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">03 / 04</div>
+      <div class="sec-title">
+        <div class="role">AI Analyst — production RAG-агент с retrieval и confidence gates</div>
+        <h2>RAG Support Assistant</h2>
+        <p class="claim">Без ссылки это не ответ. Вопрос проходит classify → hybrid retrieval → rerank → generate → verify; финальный ответ несёт inline-citations [N], открывает source-panel и route'ится к человеку, если confidence не выдержал.</p>
+      </div>
+      <div class="sec-links">
+        <a class="pill primary" href="https://brownjuly2003-code.github.io/RAG_Support_Assistant/" target="_blank" rel="noopener">Live docs <span class="arr">↗</span></a>
+        <a class="pill" href="https://github.com/brownjuly2003-code/RAG_Support_Assistant" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+        <a class="pill" href="benchmarks/rag-grounded-benchmark-2026-05-12.md" target="_blank">Benchmark <span class="arr">↗</span></a>
+      </div>
+    </div>
+
+    <div class="proof-row">
+      <div class="proof-num num">0.99<small>CITATION_ACCURACY · 29-case offline grounded oracle</small></div>
+      <div class="proof-copy">
+        <p>29 ручных кейсов в 10 категориях: warranty, returns, error_codes, installation, billing, general, multi_hop, contradiction_trap, off_topic, insufficient_data. Каждый кейс несёт expected source IDs, expected route и оракульный ответ с явными <code class="mono">[N]</code>-цитатами.</p>
+        <p>Цитаты проверены против retrieved-docs по keyword-stem. Escalation distinguished от рекомендации «обратитесь в поддержку»: триггерят только сильные маркеры — «ответить нельзя», «противоречие», «недостаточно данных». Route distribution: <strong>auto 21 / human 8 / retry 0 / error 0</strong>.</p>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div><div class="tile-num num"><span class="acc">1.00</span></div><div class="tile-lab">recall@5 · required docs ⊆ top-5</div></div>
+      <div><div class="tile-num num">1.00</div><div class="tile-lab">citation_coverage · auto-route</div></div>
+      <div><div class="tile-num num">0.99</div><div class="tile-lab">citation_accuracy · [N] → keyword match</div></div>
+      <div><div class="tile-num num">1.00</div><div class="tile-lab">escalation_accuracy · 29/29</div></div>
+    </div>
+
+    <div class="scope">
+      <span class="scope-tag oracle">offline_oracle · simulated retrieval</span>
+      <p>Не live RAG-quality benchmark. LLM не вызывается, retrieval смоделирован, ответы оракульные. Это доказательство retrieval/citation discipline самого пайплайна, не качества генерации live-модели. Live quality остаётся отдельным benchmark.</p>
+      <pre class="cmd">python harness/rag_grounded_eval.py \
+  --output-json benchmarks/rag-grounded-benchmark-2026-05-12.json</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 GraceKelly ============ -->
+<section class="section" id="gracekelly">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">04 / 04</div>
+      <div class="sec-title">
+        <div class="role">AI Analyst / LLM Platform — multi-model consensus</div>
+        <h2>GraceKelly</h2>
+        <p class="claim">Одна модель может ошибаться уверенно. Один prompt уходит в несколько моделей, ответы сравниваются как claims, embedding-кластеризация показывает agreement, disagreement и instability. Публичная история — Consensus, не каталог режимов.</p>
+      </div>
+      <div class="sec-links">
+        <a class="pill primary" href="https://brownjuly2003-code.github.io/GraceKelly/" target="_blank" rel="noopener">Live docs <span class="arr">↗</span></a>
+        <a class="pill" href="https://github.com/brownjuly2003-code/GraceKelly" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+        <a class="pill" href="benchmarks/gracekelly-claimset-benchmark-2026-05-12.md" target="_blank">Benchmark <span class="arr">↗</span></a>
+      </div>
+    </div>
+
+    <div class="proof-row">
+      <div class="proof-num num">1.00<small>UNSTABLE-CLAIM DETECTION · 35-case claim-set simulation</small></div>
+      <div class="proof-copy">
+        <p>35 кейсов в 8 категориях (factual unanimous / factual strong / ambiguous split / contradictory / trap false consensus / trap majority wrong / insufficient data / unstable). На каждый кейс — 5 симулированных ответов с известными group-labels.</p>
+        <p>На симулированной similarity-матрице (same-group 0.93, different 0.35, abstain-vs-other 0.20) гоняются <em>живые модули</em> <code class="mono">gracekelly.core</code>: <code class="mono">clustering_hac</code>, <code class="mono">cluster_confidence</code>, <code class="mono">divergence</code>. Каждая из 8 категорий получает ровно ту дискриминацию, которую заявляет divergence-порог.</p>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div><div class="tile-num num"><span class="acc">1.00</span></div><div class="tile-lab">unstable_claim_detection · 8/8 not-ACCEPT</div></div>
+      <div><div class="tile-num num">1.00</div><div class="tile-lab">abstention_quality · insufficient → expand</div></div>
+      <div><div class="tile-num num">1.00</div><div class="tile-lab">agreement_cluster_purity · top cluster homogeneous</div></div>
+      <div><div class="tile-num num">0.50</div><div class="tile-lab">false_consensus_rate · unanimity floor, reported honestly</div></div>
+    </div>
+
+    <div class="scope">
+      <span class="scope-tag sim">simulation · live core modules</span>
+      <p>Live LLM не вызывается, ответы шаблонные, similarity синтезирована из group-меток. Доказательство дискриминации consensus-механики, не live-снижения галлюцинаций. <strong>false_consensus_rate 0.50</strong> — это известный пол unanimity-based consensus: если все 5 моделей единодушно неправы, движок не имеет ground-truth-оракула. Заявлено явно, не спрятано.</p>
+      <pre class="cmd">python harness/gracekelly_claimset_eval.py \
+  --output-json benchmarks/gracekelly-claimset-benchmark-2026-05-12.json</pre>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Methodology bar ============ -->
+<section class="section" style="padding-bottom:80px">
+  <div class="wrap">
+    <div class="sec-head" style="margin-bottom:24px">
+      <div class="sec-no">→</div>
+      <div class="sec-title">
+        <h2 style="font-size:32px">Шкала доказательств</h2>
+        <p class="claim">Не все числа равны. Каждое значение на этой странице помечено тем, как оно получено.</p>
+      </div>
+    </div>
+
+    <div class="tiles" style="margin-bottom:0">
+      <div>
+        <span class="scope-tag live" style="margin-bottom:10px">live · product</span>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Реальный артефакт из работающего продукта — тесты, бенчмарки на свежих данных, метрики прямо из кода.</p>
+      </div>
+      <div>
+        <span class="scope-tag oracle" style="margin-bottom:10px">offline · oracle</span>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Ручной набор кейсов с эталонными ответами и явными цитатами. Проверяет discipline пайплайна, не live-качество модели.</p>
+      </div>
+      <div>
+        <span class="scope-tag sim" style="margin-bottom:10px">simulation</span>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Синтетические входы поверх живых core-модулей. Доказывает механику, не реальный продакшен-эффект.</p>
+      </div>
+      <div>
+        <span class="scope-tag" style="margin-bottom:10px;background:#f3f4f6;color:#525252">not measured</span>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Прямо отсутствует. Метрики, которые ещё не пройдены через benchmark, на этой странице не появляются.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot" id="contact">
+  <div class="wrap">
+    <div class="foot-name">Julia Edomskikh</div>
+    <div class="foot-role" style="margin-bottom:48px">Senior Data Analyst / Data Engineer · Москва / Королёв · готова к офису</div>
+
+    <div class="foot-row">
+      <div>
+        <h4>Email</h4>
+        <ul><li><a href="mailto:uedomskikh@gmail.com">uedomskikh@gmail.com</a></li></ul>
+      </div>
+      <div>
+        <h4>Telegram</h4>
+        <ul><li><a href="https://t.me/JuliaPhe" target="_blank" rel="noopener">@JuliaPhe</a></li></ul>
+      </div>
+      <div>
+        <h4>Phone</h4>
+        <ul><li><a href="tel:+79672080143">+7 967 208-01-43</a></li></ul>
+      </div>
+      <div>
+        <h4>Code</h4>
+        <ul><li><a href="https://github.com/brownjuly2003-code" target="_blank" rel="noopener">github.com/brownjuly2003-code</a></li></ul>
+      </div>
+    </div>
+
+    <div class="foot-meta">
+      <span>Measured 2026-05-12 · all artifacts in /benchmarks</span>
+      <span>Proof Pack v1 · LF · no tracking</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,1368 @@
+{
+  "kind": "simulation",
+  "scope": "gracekelly-claimset-benchmark",
+  "source_repo": "D:\\GraceKelly",
+  "generated_at": "2026-05-12T05:26:30",
+  "num_cases": 35,
+  "similarity_model": {
+    "same_group": 0.93,
+    "different_group": 0.35,
+    "abstain_vs_other": 0.2
+  },
+  "hac_threshold": 0.85,
+  "max_rounds": 3,
+  "aggregate": {
+    "num_cases": 35,
+    "unsupported_claim_rate": 0.4444,
+    "unstable_claim_detection": 1.0,
+    "false_consensus_rate": 0.5,
+    "agreement_cluster_purity": 1.0,
+    "abstention_quality": 1.0,
+    "action_distribution": {
+      "accept": 9,
+      "debate": 9,
+      "expand": 17
+    },
+    "by_category": {
+      "factual_unanimous": {
+        "n": 5,
+        "accept": 5,
+        "debate": 0,
+        "expand": 0,
+        "escalate": 0,
+        "match_expected_action": 1.0,
+        "avg_cluster_purity": 1.0
+      },
+      "factual_strong": {
+        "n": 5,
+        "accept": 0,
+        "debate": 5,
+        "expand": 0,
+        "escalate": 0,
+        "match_expected_action": 1.0,
+        "avg_cluster_purity": 1.0
+      },
+      "ambiguous_split": {
+        "n": 5,
+        "accept": 0,
+        "debate": 0,
+        "expand": 5,
+        "escalate": 0,
+        "match_expected_action": 1.0,
+        "avg_cluster_purity": 1.0
+      },
+      "contradictory": {
+        "n": 5,
+        "accept": 0,
+        "debate": 0,
+        "expand": 5,
+        "escalate": 0,
+        "match_expected_action": 1.0,
+        "avg_cluster_purity": 1.0
+      },
+      "trap_false_consensus": {
+        "n": 4,
+        "accept": 4,
+        "debate": 0,
+        "expand": 0,
+        "escalate": 0,
+        "match_expected_action": 1.0,
+        "avg_cluster_purity": 1.0
+      },
+      "trap_majority_wrong": {
+        "n": 4,
+        "accept": 0,
+        "debate": 4,
+        "expand": 0,
+        "escalate": 0,
+        "match_expected_action": 1.0,
+        "avg_cluster_purity": 1.0
+      },
+      "insufficient_data": {
+        "n": 4,
+        "accept": 0,
+        "debate": 0,
+        "expand": 4,
+        "escalate": 0,
+        "match_expected_action": 1.0,
+        "avg_cluster_purity": 1.0
+      },
+      "unstable": {
+        "n": 3,
+        "accept": 0,
+        "debate": 0,
+        "expand": 3,
+        "escalate": 0,
+        "match_expected_action": 1.0,
+        "avg_cluster_purity": 1.0
+      }
+    }
+  },
+  "per_case": [
+    {
+      "claim_id": "factual-capital-france",
+      "category": "factual_unanimous",
+      "ground_truth": "Париж",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-water-boiling",
+      "category": "factual_unanimous",
+      "ground_truth": "100 градусов Цельсия",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-python-creator",
+      "category": "factual_unanimous",
+      "ground_truth": "Гвидо ван Россум",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-prime-2",
+      "category": "factual_unanimous",
+      "ground_truth": "да",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-http-200",
+      "category": "factual_unanimous",
+      "ground_truth": "OK",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-strong-mercury",
+      "category": "factual_strong",
+      "ground_truth": "Меркурий",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-strong-tcp-port-http",
+      "category": "factual_strong",
+      "ground_truth": "80",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-strong-git-init",
+      "category": "factual_strong",
+      "ground_truth": "git init",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-strong-postgres-default-port",
+      "category": "factual_strong",
+      "ground_truth": "5432",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "factual-strong-fastapi-author",
+      "category": "factual_strong",
+      "ground_truth": "Sebastián Ramírez",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "correct",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "ambiguous-best-list-language",
+      "category": "ambiguous_split",
+      "ground_truth": "depends",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "valid",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "ambiguous-monorepo-vs-polyrepo",
+      "category": "ambiguous_split",
+      "ground_truth": "depends",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          2,
+          3,
+          4
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "valid",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "ambiguous-rest-vs-graphql",
+      "category": "ambiguous_split",
+      "ground_truth": "depends",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "valid",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "ambiguous-css-vs-tailwind",
+      "category": "ambiguous_split",
+      "ground_truth": "depends",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          2,
+          3,
+          4
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "valid",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "ambiguous-sql-vs-nosql",
+      "category": "ambiguous_split",
+      "ground_truth": "depends",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "valid",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "contradictory-coffee-health",
+      "category": "contradictory",
+      "ground_truth": "mixed",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1
+        ],
+        "top_size": 2,
+        "raw_ratio": 0.4,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.372,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "contradictory-rust-faster-than-c",
+      "category": "contradictory",
+      "ground_truth": "no, comparable",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1
+        ],
+        "top_size": 2,
+        "raw_ratio": 0.4,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.372,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "contradictory-electric-car-cleaner",
+      "category": "contradictory",
+      "ground_truth": "depends",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1
+        ],
+        "top_size": 2,
+        "raw_ratio": 0.4,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.372,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "contradictory-vim-vs-emacs",
+      "category": "contradictory",
+      "ground_truth": "depends",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1
+        ],
+        "top_size": 2,
+        "raw_ratio": 0.4,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.372,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "contradictory-cold-shower",
+      "category": "contradictory",
+      "ground_truth": "mixed",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1
+        ],
+        "top_size": 2,
+        "raw_ratio": 0.4,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.372,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "trap-fc-earth-flat",
+      "category": "trap_false_consensus",
+      "ground_truth": "нет, шарообразная",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "trap-fc-water-formula",
+      "category": "trap_false_consensus",
+      "ground_truth": "H2O",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "trap-fc-london-france",
+      "category": "trap_false_consensus",
+      "ground_truth": "Великобритания",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "trap-fc-python-static",
+      "category": "trap_false_consensus",
+      "ground_truth": "нет, динамически",
+      "expected_action": "accept",
+      "consensus": {
+        "num_clusters": 1,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "top_size": 5,
+        "raw_ratio": 1.0,
+        "avg_intra_similarity": 0.9299999999999999,
+        "confidence": 0.93,
+        "is_unanimous": true,
+        "action": "accept",
+        "reason": "Strong consensus reached.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "trap-mw-mercury-largest",
+      "category": "trap_majority_wrong",
+      "ground_truth": "Юпитер",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "trap-mw-shakespeare-russian",
+      "category": "trap_majority_wrong",
+      "ground_truth": "нет, на английском",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "trap-mw-mt-everest-africa",
+      "category": "trap_majority_wrong",
+      "ground_truth": "Азия (Гималаи)",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "trap-mw-css-language",
+      "category": "trap_majority_wrong",
+      "ground_truth": "нет, язык стилей",
+      "expected_action": "debate",
+      "consensus": {
+        "num_clusters": 2,
+        "clusters": [
+          [
+            0,
+            1,
+            2,
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "top_size": 4,
+        "raw_ratio": 0.8,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.744,
+        "is_unanimous": false,
+        "action": "debate",
+        "reason": "Moderate consensus — debate may help.",
+        "majority_label": "wrong",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "insufficient-x500-battery",
+      "category": "insufficient_data",
+      "ground_truth": "неизвестно",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "abstain",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "insufficient-private-incident",
+      "category": "insufficient_data",
+      "ground_truth": "неизвестно",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "abstain",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "insufficient-future-event",
+      "category": "insufficient_data",
+      "ground_truth": "неизвестно",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "abstain",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "insufficient-internal-pricing",
+      "category": "insufficient_data",
+      "ground_truth": "неизвестно",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 3,
+        "clusters": [
+          [
+            0,
+            1,
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0,
+          1,
+          2
+        ],
+        "top_size": 3,
+        "raw_ratio": 0.6,
+        "avg_intra_similarity": 0.93,
+        "confidence": 0.558,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "abstain",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "unstable-meaning-of-life",
+      "category": "unstable",
+      "ground_truth": "subjective",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 5,
+        "clusters": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0
+        ],
+        "top_size": 1,
+        "raw_ratio": 0.2,
+        "avg_intra_similarity": 1.0,
+        "confidence": 0.2,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "valid",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "unstable-best-color",
+      "category": "unstable",
+      "ground_truth": "subjective",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 5,
+        "clusters": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0
+        ],
+        "top_size": 1,
+        "raw_ratio": 0.2,
+        "avg_intra_similarity": 1.0,
+        "confidence": 0.2,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "valid",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    },
+    {
+      "claim_id": "unstable-five-styles-tea",
+      "category": "unstable",
+      "ground_truth": "subjective",
+      "expected_action": "expand",
+      "consensus": {
+        "num_clusters": 5,
+        "clusters": [
+          [
+            0
+          ],
+          [
+            1
+          ],
+          [
+            2
+          ],
+          [
+            3
+          ],
+          [
+            4
+          ]
+        ],
+        "top_indices": [
+          0
+        ],
+        "top_size": 1,
+        "raw_ratio": 0.2,
+        "avg_intra_similarity": 1.0,
+        "confidence": 0.2,
+        "is_unanimous": false,
+        "action": "expand",
+        "reason": "Low consensus — expand with 3 more rounds.",
+        "majority_label": "valid",
+        "top_cluster_purity": 1.0
+      },
+      "action_matches_expectation": true
+    }
+  ],
+  "notes": [
+    "Responses and similarity matrices are simulated; no live LLM was called.",
+    "Live consensus modules from gracekelly.core (hac_cluster, compute_cluster_confidence, assess_divergence) are imported and exercised.",
+    "Outcome validates the consensus engine's discrimination — not real-world hallucination reduction.",
+    "false_consensus_rate is expected to be 1.0 for trap_* categories: the engine cannot detect unanimous wrong answers without a ground-truth oracle. This is a known property of unanimity-based consensus, surfaced honestly by the benchmark."
+  ]
+}
