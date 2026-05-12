@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Proof Pack — Julia Edomskikh, Data / AI</title>
 <meta name="description" content="Четыре data/AI-продукта с честными measured-proof артефактами: latency benchmark, offline grounded oracle, claim-set simulation, experiment risk metrics. Каждое число имеет область применения.">
+<link rel="canonical" href="https://julia-proof-pack.vercel.app/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' font-family='Inter,sans-serif' font-size='18' font-weight='700' fill='%23fff' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Julia Edomskikh — Proof Pack">
@@ -18,6 +19,29 @@
 <meta name="twitter:title" content="Proof Pack — Measured before believed">
 <meta name="twitter:description" content="Four data/AI products with measured proof. Every number carries its scope: live · oracle · simulation.">
 <meta name="twitter:image" content="https://julia-proof-pack.vercel.app/og.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Julia Edomskikh",
+  "alternateName": "Юлия Едомских",
+  "jobTitle": "Senior Data Analyst / Data Engineer",
+  "url": "https://julia-proof-pack.vercel.app/",
+  "email": "mailto:uedomskikh@gmail.com",
+  "telephone": "+7-967-208-01-43",
+  "address": {"@type": "PostalAddress", "addressLocality": "Korolev", "addressRegion": "Moscow Oblast", "addressCountry": "RU"},
+  "sameAs": [
+    "https://github.com/brownjuly2003-code",
+    "https://t.me/JuliaPhe"
+  ],
+  "knowsAbout": ["Data Engineering", "A/B Testing", "RAG", "LLM Orchestration", "Python", "SQL", "DWH/ETL", "Power BI"],
+  "subjectOf": [
+    {"@type": "CreativeWork", "name": "AB Test Research Designer", "url": "https://liovina-ab-test-research-designer.hf.space"},
+    {"@type": "CreativeWork", "name": "RAG Support Assistant", "url": "https://brownjuly2003-code.github.io/RAG_Support_Assistant/"},
+    {"@type": "CreativeWork", "name": "GraceKelly", "url": "https://brownjuly2003-code.github.io/GraceKelly/"}
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -240,7 +264,6 @@ a:hover{border-bottom-color:var(--ink)}
       </div>
       <div class="sec-links">
         <a class="pill primary" href="https://liovina-ab-test-research-designer.hf.space" target="_blank" rel="noopener">Live demo <span class="arr">↗</span></a>
-        <a class="pill" href="https://github.com/brownjuly2003-code/AB_TEST" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
         <a class="pill" href="benchmarks/ab-test-product-evidence-2026-05-12.md" target="_blank">Evidence <span class="arr">↗</span></a>
       </div>
     </div>
@@ -335,8 +358,7 @@ a:hover{border-bottom-color:var(--ink)}
         <p class="claim">AI-агент не должен ждать вчерашний DWH. История — collapse latency: entity context из заметного человеком ожидания превращается в machine-speed lookup.</p>
       </div>
       <div class="sec-links">
-        <a class="pill primary" href="https://github.com/brownjuly2003-code/DE_project" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
-        <a class="pill" href="benchmarks/de_project-benchmark-2026-05-12.md" target="_blank">Benchmark <span class="arr">↗</span></a>
+        <a class="pill primary" href="benchmarks/de_project-benchmark-2026-05-12.md" target="_blank">Locust benchmark <span class="arr">↗</span></a>
       </div>
     </div>
 
@@ -428,7 +450,7 @@ a:hover{border-bottom-color:var(--ink)}
         <p class="claim">Без ссылки это не ответ. Вопрос проходит classify → hybrid retrieval → rerank → generate → verify; финальный ответ несёт inline-citations [N], открывает source-panel и route'ится к человеку, если confidence не выдержал.</p>
       </div>
       <div class="sec-links">
-        <a class="pill primary" href="https://brownjuly2003-code.github.io/RAG_Support_Assistant/" target="_blank" rel="noopener">Live docs <span class="arr">↗</span></a>
+        <a class="pill primary" href="https://brownjuly2003-code.github.io/RAG_Support_Assistant/architecture/providers/" target="_blank" rel="noopener">Live docs <span class="arr">↗</span></a>
         <a class="pill" href="https://github.com/brownjuly2003-code/RAG_Support_Assistant" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
         <a class="pill" href="benchmarks/rag-grounded-benchmark-2026-05-12.md" target="_blank">Benchmark <span class="arr">↗</span></a>
       </div>
@@ -530,7 +552,7 @@ a:hover{border-bottom-color:var(--ink)}
         <p class="claim">Одна модель может ошибаться уверенно. Один prompt уходит в несколько моделей, ответы сравниваются как claims, embedding-кластеризация показывает agreement, disagreement и instability. Публичная история — Consensus, не каталог режимов.</p>
       </div>
       <div class="sec-links">
-        <a class="pill primary" href="https://brownjuly2003-code.github.io/GraceKelly/" target="_blank" rel="noopener">Live docs <span class="arr">↗</span></a>
+        <a class="pill primary" href="https://brownjuly2003-code.github.io/GraceKelly/architecture/adapters/" target="_blank" rel="noopener">Live docs <span class="arr">↗</span></a>
         <a class="pill" href="https://github.com/brownjuly2003-code/GraceKelly" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
         <a class="pill" href="benchmarks/gracekelly-claimset-benchmark-2026-05-12.md" target="_blank">Benchmark <span class="arr">↗</span></a>
       </div>
