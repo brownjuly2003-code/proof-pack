@@ -151,6 +151,17 @@ a:hover{border-bottom-color:var(--ink)}
 .chart .legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:middle;border-radius:2px}
 @media(max-width:760px){.chart{padding:18px 18px}}
 
+/* screenshots */
+.shot{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
+.shot a{display:block;border:none;background:var(--surface-2);line-height:0;text-align:center}
+.shot a:hover{opacity:.92}
+.shot img{display:block;width:100%;height:auto;max-width:100%;margin:0 auto}
+.shot.narrow img{width:auto;max-width:740px;margin:0 auto}
+.shot figcaption{padding:14px 18px;font-size:13px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--line);background:var(--surface);margin:0}
+.shot figcaption .scope-tag{margin-right:8px;vertical-align:1px}
+.shot figcaption b{color:var(--ink);font-weight:600}
+@media(max-width:760px){.shot figcaption{padding:12px 14px;font-size:12.5px}.shot.narrow img{max-width:100%}}
+
 /* ---------- Footer ---------- */
 .foot{padding:80px 0 56px;background:var(--ink);color:#fff;margin-top:0}
 .foot a{color:#fff;border-bottom-color:#404040}
@@ -299,6 +310,16 @@ a:hover{border-bottom-color:var(--ink)}
       </svg>
       <div class="legend"><span><i style="background:#0a0a0a"></i>interim stop</span><span><i style="background:#2563eb"></i>final look · α exhausted</span><span><i style="background:transparent;border:1px dashed #a16207"></i>fixed-horizon Z=1.96</span></div>
     </div>
+
+    <figure class="shot narrow">
+      <a href="screenshots/ab_test-report-2026-05-12.jpg" target="_blank" rel="noopener">
+        <img src="screenshots/ab_test-report-2026-05-12.jpg" alt="AB Test Research Designer — Deterministic experiment design report: 146 642 per variant, 293 284 total, 41 days, 1 medium warning" loading="lazy" width="740" height="900">
+      </a>
+      <figcaption>
+        <span class="scope-tag live">live · screenshot · captured 2026-05-12</span>
+        <b>Live HF Space, demo scenario «Checkout Conversion».</b> Тот же deterministic-движок выдаёт <b>75 514 / 21d</b> при baseline 4.2% + MDE 7% (captured 2026-05-10); здесь — другой ввод, одинаковая механика, реальный snapshot из project history.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -382,6 +403,16 @@ a:hover{border-bottom-color:var(--ink)}
       </svg>
       <div class="legend"><span><i style="background:#2563eb"></i>headline p50</span><span><i style="background:#0a0a0a"></i>aggregate</span><span><i style="background:#0a0a0a;opacity:.55"></i>worst entity endpoint</span><span><i style="background:transparent;border:1px dashed #a16207"></i>release gate</span></div>
     </div>
+
+    <figure class="shot">
+      <a href="screenshots/de_project-swagger-2026-05-06.jpg" target="_blank" rel="noopener">
+        <img src="screenshots/de_project-swagger-2026-05-06.jpg" alt="AgentFlow Query API — Swagger UI с endpoint-группами agent, admin, alerts, contracts, deadletter, lineage, search, slo, stream, webhooks" loading="lazy" width="1100" height="1080">
+      </a>
+      <figcaption>
+        <span class="scope-tag live">live · screenshot · captured 2026-05-06</span>
+        <b>AgentFlow Query API · OpenAPI 3.1 surface.</b> Те самые <code class="mono">/v1/entity/*</code> и <code class="mono">/v1/metrics/*</code>, по которым гоняется Locust-бенчмарк (p50 14 ms, p99 280 ms · 0 failures). Swagger авто-генерируется из FastAPI-роутеров; admin/audit/lineage не маркетинг, а реальная поверхность.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -474,6 +505,16 @@ a:hover{border-bottom-color:var(--ink)}
       </svg>
       <div class="legend"><span><i style="background:#2563eb"></i>headline</span><span><i style="background:#0a0a0a"></i>measured</span><span><i style="background:#737373;opacity:.6"></i>* keyword-fallback artefact</span></div>
     </div>
+
+    <figure class="shot">
+      <a href="screenshots/rag-providers-2026-05-12.jpg" target="_blank" rel="noopener">
+        <img src="screenshots/rag-providers-2026-05-12.jpg" alt="RAG Support Assistant docs — Provider routing matrix: 3 providers (Ollama, GraceKelly, Mistral), 9 моделей, 4 routing profiles" loading="lazy" width="1100" height="1043">
+      </a>
+      <figcaption>
+        <span class="scope-tag live">live · screenshot · captured 2026-05-12</span>
+        <b>Live Astro docs · Provider routing matrix.</b> 3 провайдера, 9 моделей, 4 profiles (включая <code class="mono">gracekelly-mixed</code> с Mistral на fast tier и GraceKelly на strong). Авто-генерируется из <code class="mono">config/providers.yml</code> на каждой сборке — не вручную поддерживаемая копия.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -572,6 +613,16 @@ a:hover{border-bottom-color:var(--ink)}
       </svg>
       <div class="legend"><span><i style="background:#166534"></i>correct ACCEPT</span><span><i style="background:#92400e"></i>DEBATE</span><span><i style="background:#9f1239"></i>EXPAND</span><span>* unanimity floor — accepted but wrong; reported, not hidden</span></div>
     </div>
+
+    <figure class="shot">
+      <a href="screenshots/gracekelly-adapters-2026-05-12.jpg" target="_blank" rel="noopener">
+        <img src="screenshots/gracekelly-adapters-2026-05-12.jpg" alt="GraceKelly docs — Execution adapters: 5 adapters, 3 transports (HTTP API, Playwright browser, dry-run), dispatch flowchart" loading="lazy" width="1100" height="956">
+      </a>
+      <figcaption>
+        <span class="scope-tag live">live · screenshot · captured 2026-05-12</span>
+        <b>Live Astro docs · Execution adapters.</b> 5 адаптеров (Anthropic/OpenAI-совместимый/base HTTP + Perplexity Playwright + dry-run) под одним Orchestrator-диспатчем. Авто-генерируется regex'ом по объявлениям <code class="mono">class X(ExecutionAdapter)</code> в <code class="mono">src/gracekelly/adapters/**/*.py</code>.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
