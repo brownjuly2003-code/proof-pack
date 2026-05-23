@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DV2.0 Multi-Branch Live Demo — AgentFlow</title>
+  <meta name="description" content="42-second live recording of a Data Vault 2.0 multi-branch demo executing against a self-hosted Kubernetes cluster: 5 branches, 39 satellites, MDM, anonymized cold tier, end-to-end.">
+  <link rel="canonical" href="https://brownjuly2003-code.github.io/proof-pack/dv2_demo.html">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' font-family='Inter,sans-serif' font-size='18' font-weight='700' fill='%23fff' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@3/dist/bundle/asciinema-player.css" />
+  <style>
+    :root {
+      --text: #0a0a0a;
+      --muted: #525252;
+      --soft: #737373;
+      --bg: #fafafa;
+      --frame: #e5e5e5;
+      --accent: #2563eb;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 56px 24px 64px;
+    }
+    .topnav {
+      display: flex;
+      gap: 18px;
+      align-items: baseline;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .topnav a {
+      color: var(--muted);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    .topnav a:hover { color: var(--text); border-bottom-color: var(--text); }
+    h1 {
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.012em;
+      margin: 0 0 10px;
+    }
+    .lede {
+      color: var(--muted);
+      font-size: 15.5px;
+      margin: 0 0 32px;
+      max-width: 760px;
+    }
+    .lede strong { color: var(--text); font-weight: 600; }
+    .player {
+      border: 1px solid var(--frame);
+      border-radius: 6px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 8px 28px rgba(0,0,0,.06);
+    }
+    .meta {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      margin: 18px 0 36px;
+      color: var(--soft);
+      font-size: 13.5px;
+      flex-wrap: wrap;
+    }
+    .meta .dot { color: var(--frame); }
+    .meta a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--frame);
+    }
+    .meta a:hover { border-bottom-color: var(--text); }
+    .meta .play-actions { margin-left: auto; display: flex; gap: 14px; }
+    .meta .play-actions a {
+      color: var(--accent);
+      border-bottom: 1px solid transparent;
+    }
+    .meta .play-actions a:hover { border-bottom-color: var(--accent); }
+
+    section.beats { margin-top: 16px; }
+    section.beats h2 {
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--muted);
+      margin: 0 0 14px;
+    }
+    .beats-grid {
+      display: grid;
+      grid-template-columns: 64px 1.1fr 1.3fr;
+      gap: 10px 18px;
+      font-size: 14px;
+    }
+    .beats-grid .t {
+      color: var(--soft);
+      font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+      font-variant-numeric: tabular-nums;
+      font-size: 12.5px;
+    }
+    .beats-grid .lab b { font-weight: 600; }
+    .beats-grid code {
+      font-family: "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+      font-size: 12.5px;
+      background: rgba(0,0,0,.04);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    section.context {
+      margin-top: 44px;
+      padding-top: 24px;
+      border-top: 1px solid var(--frame);
+    }
+    section.context h2 {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+    section.context p {
+      color: var(--muted);
+      font-size: 14.5px;
+      margin: 0 0 12px;
+      max-width: 760px;
+    }
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 4px;
+    }
+    .stack span {
+      font-size: 12px;
+      font-family: "JetBrains Mono", "SF Mono", Menlo, monospace;
+      color: var(--text);
+      background: #fff;
+      border: 1px solid var(--frame);
+      padding: 4px 9px;
+      border-radius: 3px;
+    }
+    footer {
+      margin-top: 56px;
+      padding-top: 22px;
+      border-top: 1px solid var(--frame);
+      font-size: 13px;
+      color: var(--soft);
+    }
+    footer a { color: var(--muted); border-bottom: 1px solid var(--frame); text-decoration: none; }
+    footer a:hover { color: var(--text); border-bottom-color: var(--text); }
+  </style>
+</head>
+<body>
+  <main>
+    <nav class="topnav">
+      <a href="./">← Proof Pack</a>
+      <a href="./#de">DE_project section</a>
+    </nav>
+
+    <h1>DV2.0 multi-branch — live demo</h1>
+    <p class="lede">
+      42-second silent recording of a Data Vault 2.0 multi-branch demo
+      executing end-to-end against a self-hosted Kubernetes cluster on
+      2026-05-23. <strong>Five branches</strong> (MSK / SPB / EKB / DXB / ALA),
+      <strong>39 satellites</strong>, Business Vault MDM with per-branch RBAC,
+      anonymized parquet cold tier in MinIO S3.
+    </p>
+
+    <div class="player" id="player"></div>
+
+    <div class="meta">
+      <span>silent recording · 42s · 130×35 terminal</span>
+      <span class="dot">·</span>
+      <span><a href="https://github.com/brownjuly2003-code/agentflow/tree/main/docs/dv2-multi-branch" target="_blank" rel="noopener">source on GitHub</a></span>
+      <div class="play-actions">
+        <a href="#" onclick="window.player.play(); return false;">play</a>
+        <a href="#" onclick="window.player.pause(); return false;">pause</a>
+        <a href="#" onclick="window.player.seek(0); window.player.play(); return false;">restart</a>
+      </div>
+    </div>
+
+    <section class="beats">
+      <h2>What you see</h2>
+      <div class="beats-grid">
+        <div class="t">00:00</div>
+        <div class="lab"><b>Cluster topology</b> · <code>kubectl get nodes --show-labels</code></div>
+        <div>3 nodes labelled with <code>branch</code> / <code>nodepool</code> / <code>workload</code>; data-tier pods pinned by <code>nodeSelector</code>.</div>
+
+        <div class="t">00:08</div>
+        <div class="lab"><b>Model surface</b> · <code>SELECT splitByString('_', name)[1], count() FROM system.tables</code></div>
+        <div>bv 6, hub 8, lnk 8, sat 39 in <code>rv</code> — Data Vault 2.0 raw vault + business vault views.</div>
+
+        <div class="t">00:14</div>
+        <div class="lab"><b>Multi-branch distribution</b> · split <code>record_source</code> from <code>hub_order</code></div>
+        <div>msk 40.5 / spb 24.1 / ekb 14.5 / dxb 11.2 / ala 9.7 % — consistent hashing on <code>store_id</code>.</div>
+
+        <div class="t">00:22</div>
+        <div class="lab"><b>Business Vault MDM</b> · per-branch PII + loyalty</div>
+        <div>msk 800 / 800 / 640 (PII 100%, loyalty 80%); dxb 200 / 200 / 0 (no Bitrix24 in Dubai by design).</div>
+
+        <div class="t">00:30</div>
+        <div class="lab"><b>Cold-offload</b> · <code>kubectl create job --from=cronjob/dv2-cold-offload-msk</code></div>
+        <div>Anonymized parquet per branch in MinIO <code>local/cold-tier</code>. No PII columns in cold tier by contract.</div>
+
+        <div class="t">00:40</div>
+        <div class="lab"><b>Closing</b> · <code>bash infrastructure/dv2/bootstrap.sh</code></div>
+        <div>Everything in this recording rebuilds from a single command. No vendored state.</div>
+      </div>
+    </section>
+
+    <section class="context">
+      <h2>Context</h2>
+      <p>
+        Mid-market fashion retailer: 5 locations, 3 jurisdictions, 6 source
+        systems (1C + Bitrix24 + WMS Excel + site XML + WB/Ozon API).
+        Production-shape DV2.0 modelling lives in Kubernetes-hosted ClickHouse
+        25.5 + Postgres 17 + MinIO; Argo Workflows orchestrates the refresh
+        DAG; dbt builds the mart layer; per-branch CDC fan-out via two
+        Postgres databases and two CH <code>MaterializedPostgreSQL</code>
+        databases proves operational isolation.
+      </p>
+      <p>
+        The full architecture, query plans, and reproduction recipe are in
+        <a href="https://github.com/brownjuly2003-code/agentflow/blob/main/docs/dv2-multi-branch/demo_evidence.md" target="_blank" rel="noopener">demo_evidence.md</a>
+        in the AgentFlow repo. The 2-minute spoken pitch is in
+        <a href="https://github.com/brownjuly2003-code/agentflow/blob/main/docs/dv2-multi-branch/pitch.md" target="_blank" rel="noopener">pitch.md</a>.
+      </p>
+
+      <div class="stack">
+        <span>Kubernetes (kind / upstream 1.35)</span>
+        <span>ClickHouse 25.5</span>
+        <span>Postgres 17</span>
+        <span>MinIO S3</span>
+        <span>Argo Workflows v3.5</span>
+        <span>dbt</span>
+        <span>MaterializedPostgreSQL CDC</span>
+        <span>Data Vault 2.0</span>
+      </div>
+    </section>
+
+    <footer>
+      Captured 2026-05-23 on the <code>hq-demo</code> cluster.
+      Cast source · <a href="https://github.com/brownjuly2003-code/agentflow/blob/main/docs/dv2-multi-branch/demo.cast" target="_blank" rel="noopener">demo.cast</a>
+      &nbsp;·&nbsp; runner · <a href="https://github.com/brownjuly2003-code/agentflow/blob/main/docs/dv2-multi-branch/demo_runner.sh" target="_blank" rel="noopener">demo_runner.sh</a>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/asciinema-player@3/dist/bundle/asciinema-player.min.js"></script>
+  <script>
+    window.player = AsciinemaPlayer.create('./dv2_demo.cast', document.getElementById('player'), {
+      cols: 130,
+      rows: 35,
+      autoPlay: true,
+      loop: true,
+      idleTimeLimit: 2,
+      theme: 'asciinema',
+      fit: 'width'
+    });
+  </script>
+</body>
+</html>
