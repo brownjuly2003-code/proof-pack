@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Proof Pack — Julia Edomskikh, Data / AI</title>
-<meta name="description" content="Четыре data/AI-продукта с честными measured-proof артефактами: latency benchmark, offline grounded oracle, claim-set simulation, experiment risk metrics. Каждое число имеет область применения.">
+<meta name="description" content="Пять data/AI-продуктов с честными measured-proof артефактами: NL→dashboard агент на реальном DWH, latency benchmark, offline grounded oracle, claim-set simulation, experiment risk metrics. Каждое число имеет область применения.">
 <link rel="canonical" href="https://brownjuly2003-code.github.io/proof-pack/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' font-family='Inter,sans-serif' font-size='18' font-weight='700' fill='%23fff' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Julia Edomskikh — Proof Pack">
 <meta property="og:title" content="Proof Pack — Measured before believed">
-<meta property="og:description" content="Four data/AI products with honest measured-proof artifacts: live load benchmark, offline grounded oracle, claim-set simulation, experiment-risk metrics. Every number carries its scope.">
+<meta property="og:description" content="Five data/AI products with honest measured-proof artifacts: NL→dashboard agent on a real DWH, live load benchmark, offline grounded oracle, claim-set simulation, experiment-risk metrics. Every number carries its scope.">
 <meta property="og:url" content="https://brownjuly2003-code.github.io/proof-pack/">
 <meta property="og:image" content="https://brownjuly2003-code.github.io/proof-pack/og.png">
 <meta property="og:image:width" content="1200">
@@ -36,6 +36,7 @@
   ],
   "knowsAbout": ["Data Engineering", "A/B Testing", "RAG", "LLM Orchestration", "Python", "SQL", "DWH/ETL", "Power BI"],
   "subjectOf": [
+    {"@type": "CreativeWork", "name": "Auto_BI — NL→dashboard agent over DWH", "url": "https://github.com/brownjuly2003-code/Auto_BI"},
     {"@type": "CreativeWork", "name": "AB Test Research Designer", "url": "https://liovina-ab-test-research-designer.hf.space"},
     {"@type": "CreativeWork", "name": "RAG Support Assistant", "url": "https://brownjuly2003-code.github.io/RAG_Support_Assistant/"},
     {"@type": "CreativeWork", "name": "GraceKelly", "url": "https://brownjuly2003-code.github.io/GraceKelly/"}
@@ -211,6 +212,7 @@ a:hover{border-bottom-color:var(--ink)}
     <span class="bar-name">Julia Edomskikh</span>
     <span class="bar-role">Senior Data Analyst · DE</span>
     <nav class="bar-nav">
+      <a href="#auto">Auto_BI</a>
       <a href="#abtest">AB_TEST</a>
       <a href="#de">DE_project</a>
       <a href="#rag">RAG</a>
@@ -223,11 +225,16 @@ a:hover{border-bottom-color:var(--ink)}
 
 <section class="hero">
   <div class="wrap">
-    <div class="hero-eyebrow">Proof Pack · 2026-05-12</div>
+    <div class="hero-eyebrow">Proof Pack · 2026-06-16</div>
     <h1>Measured <em>before</em> believed.</h1>
-    <p class="hero-lede">Четыре data/AI-проекта, у которых сначала появилось измерение и только потом — публичная формулировка. Каждое число на этой странице имеет область применения: live, offline-oracle или simulation. Ничего, что не было измерено, на этой странице не заявлено.</p>
+    <p class="hero-lede">Пять data/AI-проектов, у которых сначала появилось измерение и только потом — публичная формулировка. Каждое число на этой странице имеет область применения: live, offline-oracle или simulation. Ничего, что не было измерено, на этой странице не заявлено.</p>
 
     <div class="hero-shelf">
+      <a class="major feature" href="#auto" style="grid-column:1/-1">
+        <div class="scope"><span class="scope-tag live">live · real DWH</span></div>
+        <div class="hg-num num">15.05<span class="pct">M</span></div>
+        <div class="hg-lab"><b>NL→dashboard поверх реального DWH.</b> X5 Retail Hero (15.05M line items) в ClickHouse; feasibility-advisor с реальным EXPLAIN-evidence, детерминированный аудит витрины (18 findings).</div>
+      </a>
       <a class="major" href="#abtest">
         <div class="scope"><span class="scope-tag live">live · product</span></div>
         <div class="hg-num num">57<span class="pct">%</span></div>
@@ -252,11 +259,74 @@ a:hover{border-bottom-color:var(--ink)}
   </div>
 </section>
 
-<!-- ============ 01 AB_TEST ============ -->
+<!-- ============ 01 Auto_BI ============ -->
+<section class="section" id="auto">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="sec-no">01 / 05</div>
+      <div class="sec-title">
+        <div class="role">Data / AI — NL→dashboard агент поверх DWH</div>
+        <h2>Auto_BI</h2>
+        <p class="claim">Дашборд начинается с вопроса, а не с перетаскивания полей. Запрос на естественном языке проходит IR-first разбор → feasibility-advisor с реальным <code class="mono">EXPLAIN</code>-evidence → детерминированный аудит витрины → генерацию Superset-дашборда поверх DWH. Что нельзя посчитать честно — advisor говорит до построения, а не после.</p>
+      </div>
+      <div class="sec-links">
+        <a class="pill primary" href="https://github.com/brownjuly2003-code/Auto_BI" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+      </div>
+    </div>
+
+    <div class="proof-row">
+      <div class="proof-num num">15.05<span class="unit">M</span><small>LINE ITEMS · реальный DWH (X5 Retail Hero, публичный датасет) в ClickHouse</small></div>
+      <div class="proof-copy">
+        <p>Phase 1 закрыта на <strong>реальном DWH</strong>, а не на игрушечной схеме: срез X5 Retail Hero — <strong>15.05M line items / 2.6M заказов / 400k клиентов / 43k товаров</strong> в ClickHouse, доступ агента — read-only роль. Интроспекция дала <code class="mono">semantic/model_x5.yaml</code> (3 таблицы, 37 колонок) и выловила 2 реальных бага интроспектора.</p>
+        <p>Команда <code class="mono">auto_bi gaps</code> — детерминированный аудит витрины (описания, изоляция, all-NULL/constant колонки, грануляция) → <strong>18 findings (1 critical / 14 warn / 3 info)</strong>, 10 кандидатов в change-request. Feasibility-advisor выдаёт вердикт с реальным <code class="mono">EXPLAIN</code>-evidence (scan 100%, GROUP BY 401k строк), а не догадкой. <strong>140 pytest passed.</strong></p>
+      </div>
+    </div>
+
+    <div class="tiles">
+      <div><div class="tile-num num"><span class="acc">18</span></div><div class="tile-lab">gaps findings · 1 critical / 14 warn / 3 info</div></div>
+      <div><div class="tile-num num">37</div><div class="tile-lab">колонок интроспектировано · 3 таблицы</div></div>
+      <div><div class="tile-num num">140</div><div class="tile-lab">pytest passed</div></div>
+      <div><div class="tile-num num">100<span class="pct">%</span></div><div class="tile-lab">EXPLAIN scan · advisor с реальным evidence</div></div>
+    </div>
+
+    <div class="scope">
+      <span class="scope-tag live">live · real DWH</span>
+      <p>Данные — публичный датасет X5 Retail Hero (хакатон, не клиентские данные), загружен в реальный ClickHouse-стенд; advisor читает реальный <code class="mono">EXPLAIN</code>, аудит детерминирован. Доказательство механики на настоящем DWH, не на синтетике.</p>
+      <pre class="cmd">auto_bi gaps  →  docs/gaps_report_marts_x5.md  (18 findings)</pre>
+    </div>
+
+    <div class="chart">
+      <h4><span>DM gaps audit · 18 findings by severity</span><span class="src">source: docs/gaps_report_marts_x5.md</span></h4>
+      <p class="sub">Детерминированный аудит витрины до построения дашборда: критичное (фуллскан-грануляция) отделено от предупреждений и информационных. 10 из 18 — кандидаты в change-request.</p>
+      <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" aria-label="Auto_BI gaps findings by severity">
+        <line x1="60" y1="96" x2="700" y2="96" stroke="#e5e5e5"/>
+        <g font-family="JetBrains Mono, monospace" font-size="10" fill="#737373">
+          <text x="60" y="114" text-anchor="middle">0</text>
+          <text x="238" y="114" text-anchor="middle">5</text>
+          <text x="416" y="114" text-anchor="middle">10</text>
+          <text x="593" y="114" text-anchor="middle">15</text>
+          <text x="700" y="114" text-anchor="middle">18</text>
+        </g>
+        <rect x="60" y="44" width="35.6" height="40" fill="#9f1239"/>
+        <rect x="95.6" y="44" width="497.8" height="40" fill="#92400e"/>
+        <rect x="593.4" y="44" width="106.6" height="40" fill="#737373"/>
+        <g font-family="Inter" font-weight="600" font-size="13" fill="#fff">
+          <text x="77" y="69" text-anchor="middle">1</text>
+          <text x="344" y="69" text-anchor="middle">14</text>
+          <text x="646" y="69" text-anchor="middle">3</text>
+        </g>
+        <text x="380" y="132" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">findings = critical + warn + info (детерминированный аудит, без LLM)</text>
+      </svg>
+      <div class="legend"><span><i style="background:#9f1239"></i>critical · фуллскан-грануляция</span><span><i style="background:#92400e"></i>warn</span><span><i style="background:#737373"></i>info</span><span>10/18 → change-request</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 AB_TEST ============ -->
 <section class="section" id="abtest">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-no">01 / 04</div>
+      <div class="sec-no">02 / 05</div>
       <div class="sec-title">
         <div class="role">Product / Data Analyst — pre-launch experiment design</div>
         <h2>AB Test Research Designer</h2>
@@ -335,23 +405,15 @@ a:hover{border-bottom-color:var(--ink)}
       <div class="legend"><span><i style="background:#0a0a0a"></i>interim stop</span><span><i style="background:#2563eb"></i>final look · α exhausted</span><span><i style="background:transparent;border:1px dashed #a16207"></i>fixed-horizon Z=1.96</span></div>
     </div>
 
-    <figure class="shot narrow">
-      <a href="screenshots/ab_test-report-2026-05-12.jpg" target="_blank" rel="noopener">
-        <img src="screenshots/ab_test-report-2026-05-12.jpg" alt="AB Test Research Designer — Deterministic experiment design report: 146 642 per variant, 293 284 total, 41 days, 1 medium warning" loading="lazy" width="740" height="900">
-      </a>
-      <figcaption>
-        <span class="scope-tag live">live · screenshot · captured 2026-05-12</span>
-        <b>Live HF Space, demo scenario «Checkout Conversion».</b> Тот же deterministic-движок выдаёт <b>75 514 / 21d</b> при baseline 4.2% + MDE 7% (captured 2026-05-10); здесь — другой ввод, одинаковая механика, реальный snapshot из project history.
-      </figcaption>
-    </figure>
+
   </div>
 </section>
 
-<!-- ============ 02 DE_project ============ -->
+<!-- ============ 03 DE_project ============ -->
 <section class="section" id="de">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-no">02 / 04</div>
+      <div class="sec-no">03 / 05</div>
       <div class="sec-title">
         <div class="role">Data Engineer — real-time entity context для AI-агентов</div>
         <h2>DE_project / AgentFlow</h2>
@@ -427,23 +489,15 @@ a:hover{border-bottom-color:var(--ink)}
       <div class="legend"><span><i style="background:#2563eb"></i>headline p50</span><span><i style="background:#0a0a0a"></i>aggregate</span><span><i style="background:#0a0a0a;opacity:.55"></i>worst entity endpoint</span><span><i style="background:transparent;border:1px dashed #a16207"></i>release gate</span></div>
     </div>
 
-    <figure class="shot">
-      <a href="screenshots/de_project-swagger-2026-05-06.jpg" target="_blank" rel="noopener">
-        <img src="screenshots/de_project-swagger-2026-05-06.jpg" alt="AgentFlow Query API — Swagger UI с endpoint-группами agent, admin, alerts, contracts, deadletter, lineage, search, slo, stream, webhooks" loading="lazy" width="1100" height="1080">
-      </a>
-      <figcaption>
-        <span class="scope-tag live">live · screenshot · captured 2026-05-06</span>
-        <b>AgentFlow Query API · OpenAPI 3.1 surface.</b> Те самые <code class="mono">/v1/entity/*</code> и <code class="mono">/v1/metrics/*</code>, по которым гоняется Locust-бенчмарк (p50 14 ms, p99 280 ms · 0 failures). Swagger авто-генерируется из FastAPI-роутеров; admin/audit/lineage не маркетинг, а реальная поверхность.
-      </figcaption>
-    </figure>
+
   </div>
 </section>
 
-<!-- ============ 03 RAG ============ -->
+<!-- ============ 04 RAG ============ -->
 <section class="section" id="rag">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-no">03 / 04</div>
+      <div class="sec-no">04 / 05</div>
       <div class="sec-title">
         <div class="role">AI Analyst — production RAG-агент с retrieval и confidence gates</div>
         <h2>RAG Support Assistant</h2>
@@ -529,23 +583,15 @@ a:hover{border-bottom-color:var(--ink)}
       <div class="legend"><span><i style="background:#2563eb"></i>headline</span><span><i style="background:#0a0a0a"></i>measured</span><span><i style="background:#737373;opacity:.6"></i>* keyword-fallback artefact</span></div>
     </div>
 
-    <figure class="shot">
-      <a href="screenshots/rag-providers-2026-05-12.jpg" target="_blank" rel="noopener">
-        <img src="screenshots/rag-providers-2026-05-12.jpg" alt="RAG Support Assistant docs — Provider routing matrix: 3 providers (Ollama, GraceKelly, Mistral), 9 моделей, 4 routing profiles" loading="lazy" width="1100" height="1043">
-      </a>
-      <figcaption>
-        <span class="scope-tag live">live · screenshot · captured 2026-05-12</span>
-        <b>Live Astro docs · Provider routing matrix.</b> 3 провайдера, 9 моделей, 4 profiles (включая <code class="mono">gracekelly-mixed</code> с Mistral на fast tier и GraceKelly на strong). Авто-генерируется из <code class="mono">config/providers.yml</code> на каждой сборке — не вручную поддерживаемая копия.
-      </figcaption>
-    </figure>
+
   </div>
 </section>
 
-<!-- ============ 04 GraceKelly ============ -->
+<!-- ============ 05 GraceKelly ============ -->
 <section class="section" id="gracekelly">
   <div class="wrap">
     <div class="sec-head">
-      <div class="sec-no">04 / 04</div>
+      <div class="sec-no">05 / 05</div>
       <div class="sec-title">
         <div class="role">AI Analyst / LLM Platform — multi-model consensus</div>
         <h2>GraceKelly</h2>
@@ -637,15 +683,7 @@ a:hover{border-bottom-color:var(--ink)}
       <div class="legend"><span><i style="background:#166534"></i>correct ACCEPT</span><span><i style="background:#92400e"></i>DEBATE</span><span><i style="background:#9f1239"></i>EXPAND</span><span>* unanimity floor — accepted but wrong; reported, not hidden</span></div>
     </div>
 
-    <figure class="shot">
-      <a href="screenshots/gracekelly-adapters-2026-05-12.jpg" target="_blank" rel="noopener">
-        <img src="screenshots/gracekelly-adapters-2026-05-12.jpg" alt="GraceKelly docs — Execution adapters: 5 adapters, 3 transports (HTTP API, Playwright browser, dry-run), dispatch flowchart" loading="lazy" width="1100" height="956">
-      </a>
-      <figcaption>
-        <span class="scope-tag live">live · screenshot · captured 2026-05-12</span>
-        <b>Live Astro docs · Execution adapters.</b> 5 адаптеров (Anthropic/OpenAI-совместимый/base HTTP + Perplexity Playwright + dry-run) под одним Orchestrator-диспатчем. Авто-генерируется regex'ом по объявлениям <code class="mono">class X(ExecutionAdapter)</code> в <code class="mono">src/gracekelly/adapters/**/*.py</code>.
-      </figcaption>
-    </figure>
+
   </div>
 </section>
 
