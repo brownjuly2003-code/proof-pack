@@ -3,759 +3,198 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Proof Pack — Julia Edomskikh, Data / AI</title>
-<meta name="description" content="Пять data/AI-продуктов с честными measured-proof артефактами: NL→dashboard агент на реальном DWH, latency benchmark, offline grounded oracle, claim-set simulation, experiment risk metrics. Каждое число имеет область применения.">
-<link rel="canonical" href="https://brownjuly2003-code.github.io/proof-pack/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230a0a0a'/%3E%3Ctext x='16' y='22' font-family='Inter,sans-serif' font-size='18' font-weight='700' fill='%23fff' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="Julia Edomskikh — Proof Pack">
-<meta property="og:title" content="Proof Pack — Measured before believed">
-<meta property="og:description" content="Five data/AI products with honest measured-proof artifacts: NL→dashboard agent on a real DWH, live load benchmark, offline grounded oracle, claim-set simulation, experiment-risk metrics. Every number carries its scope.">
-<meta property="og:url" content="https://brownjuly2003-code.github.io/proof-pack/">
+<title>Projects to share — Julia Edomskikh</title>
+<meta name="description" content="Шесть рабочих data/AI-продуктов: что решает, одна ключевая цифра и ссылки на код и живую версию.">
+<meta property="og:title" content="Projects to share — Julia Edomskikh">
+<meta property="og:description" content="Шесть рабочих data/AI-продуктов: что решает, одна ключевая цифра и ссылки на код и живую версию.">
 <meta property="og:image" content="https://brownjuly2003-code.github.io/proof-pack/og.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://brownjuly2003-code.github.io/proof-pack/">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Proof Pack — Measured before believed">
-<meta name="twitter:description" content="Four data/AI products with measured proof. Every number carries its scope: live · oracle · simulation.">
-<meta name="twitter:image" content="https://brownjuly2003-code.github.io/proof-pack/og.png">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Julia Edomskikh",
-  "alternateName": "Юлия Едомских",
-  "jobTitle": "Senior Data Analyst / Data Engineer",
-  "url": "https://brownjuly2003-code.github.io/proof-pack/",
-  "email": "mailto:uedomskikh@gmail.com",
-  "telephone": "+7-967-208-01-43",
-  "address": {"@type": "PostalAddress", "addressLocality": "Korolev", "addressRegion": "Moscow Oblast", "addressCountry": "RU"},
-  "sameAs": [
-    "https://github.com/brownjuly2003-code",
-    "https://t.me/JuliaPhe"
-  ],
-  "knowsAbout": ["Data Engineering", "A/B Testing", "RAG", "LLM Orchestration", "Python", "SQL", "DWH/ETL", "Power BI"],
-  "subjectOf": [
-    {"@type": "CreativeWork", "name": "Auto_BI — NL→dashboard agent over DWH", "url": "https://github.com/brownjuly2003-code/Auto_BI"},
-    {"@type": "CreativeWork", "name": "AB Test Research Designer", "url": "https://liovina-ab-test-research-designer.hf.space"},
-    {"@type": "CreativeWork", "name": "RAG Support Assistant", "url": "https://brownjuly2003-code.github.io/RAG_Support_Assistant/"},
-    {"@type": "CreativeWork", "name": "GraceKelly", "url": "https://brownjuly2003-code.github.io/GraceKelly/"}
-  ]
-}
-</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFE500'/%3E%3Ctext x='16' y='23' font-family='Inter,sans-serif' font-size='20' font-weight='700' fill='%230a0a0a' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
+  --yellow:#FFE500;
   --ink:#0a0a0a;
-  --ink-2:#1f1f1f;
-  --muted:#525252;
-  --muted-2:#737373;
-  --line:#e5e5e5;
-  --line-soft:#f0f0f0;
-  --surface:#fafafa;
-  --surface-2:#f5f5f5;
-  --accent:#2563eb;
-  --green:#0f8a3d;
-  --amber:#a16207;
-  --bg:#ffffff;
+  --ink-2:#3a3a2e;
   --tab:"tnum" 1,"lnum" 1;
 }
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
   font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;
-  font-size:16px;line-height:1.6;color:var(--ink);background:var(--bg);
+  background:var(--yellow);color:var(--ink);
+  font-size:16px;line-height:1.45;
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
-  font-feature-settings:"ss01","cv11";
 }
-::selection{background:var(--ink);color:#fff}
-a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
-a:hover{border-bottom-color:var(--ink)}
+::selection{background:var(--ink);color:var(--yellow)}
 .mono{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace}
-.num{font-feature-settings:var(--tab);font-variant-numeric:tabular-nums lining-nums}
+.num{font-variant-numeric:tabular-nums lining-nums;font-feature-settings:var(--tab)}
+a{color:inherit;text-decoration:none}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 30px}
 
 /* ---------- Top bar ---------- */
-.bar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
-.bar-row{max-width:1180px;margin:0 auto;padding:14px 32px;display:flex;align-items:center;gap:24px;font-size:13px}
-.bar a{border:none}
-.bar-name{font-weight:600;letter-spacing:-.01em}
-.bar-role{color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.08em}
-.bar-nav{margin-left:auto;display:flex;gap:22px;color:var(--muted)}
-.bar-nav a:hover{color:var(--ink)}
-@media(max-width:760px){.bar-row{padding:12px 20px;gap:14px}.bar-nav{display:none}.bar-role{display:none}}
-
-/* ---------- Wrapper ---------- */
-.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
-@media(max-width:760px){.wrap{padding:0 20px}}
+.bar{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:14px 0 12px;font-size:13px}
+.bar .who{font-weight:600;letter-spacing:-.01em}
+.bar .who span{color:var(--ink-2);font-weight:500}
+.bar .who span:before{content:" · "}
+.bar a.lnk{font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.bar a.lnk:hover{background:var(--ink);color:var(--yellow)}
 
 /* ---------- Hero ---------- */
-.hero{padding:120px 0 80px;border-bottom:1px solid var(--line)}
-.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:32px;display:flex;align-items:center;gap:14px}
-.hero-eyebrow::before{content:"";width:32px;height:1px;background:var(--ink)}
-.hero h1{font-size:clamp(48px,7vw,96px);line-height:.96;letter-spacing:-.045em;font-weight:600;margin:0 0 28px;max-width:920px}
-.hero h1 em{font-style:normal;color:var(--muted-2)}
-.hero-lede{font-size:20px;line-height:1.5;color:var(--ink-2);max-width:760px;margin:0 0 56px}
-@media(max-width:760px){.hero{padding:64px 0 56px}.hero-lede{font-size:17px;margin-bottom:40px}}
+.hero{padding:6px 0 18px}
+.hero h1{font-size:clamp(34px,5.4vw,60px);line-height:.92;letter-spacing:-.045em;font-weight:700;margin:0}
+.hero p{font-size:clamp(14px,1.4vw,16px);line-height:1.4;margin:10px 0 0;max-width:64ch;font-weight:500;color:var(--ink)}
 
-/* hero proof shelf — 2 dominant tiles + 2 supporting */
-.hero-shelf{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.hero-shelf > a{background:#fff;padding:36px 30px;border:none;display:block;min-width:0;overflow-wrap:anywhere;text-decoration:none;color:inherit;transition:background .15s}
-.hero-shelf > a:hover{background:var(--surface)}
-.hero-shelf .major{padding:44px 34px}
-.hero-shelf .scope{margin:0 0 16px;padding:0;border:none;display:flex;align-items:center;gap:10px}
-.hero-shelf .scope::before{content:"";width:18px;height:1px;background:var(--ink)}
-.hg-num{font-size:64px;line-height:.95;letter-spacing:-.04em;font-weight:600;margin:0 0 12px}
-.hg-num .pct{font-size:36px;color:var(--muted);margin-left:4px;font-weight:500}
-.hg-num .arr{display:inline-block;font-size:30px;color:var(--muted);margin:0 8px;vertical-align:8px;font-weight:500}
-.hero-shelf .minor .hg-num{font-size:44px}
-.hero-shelf .minor .hg-num .pct{font-size:26px}
-.hg-lab{font-size:13px;color:var(--ink-2);line-height:1.45;max-width:36ch}
-.hg-lab b{color:var(--ink);font-weight:600}
-@media(max-width:760px){
-  .hero-shelf{grid-template-columns:1fr}
-  .hero-shelf .major{padding:32px 24px}
-  .hero-shelf > a{padding:28px 24px}
-  .hg-num{font-size:54px}
-  .hero-shelf .minor .hg-num{font-size:36px}
-}
+/* ---------- Grid 3x2: rows divided by rules, no boxes ---------- */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:34px;row-gap:0}
+.card{padding:18px 0 16px;border-top:2px solid var(--ink);display:flex;flex-direction:column;min-width:0}
+.card h2{font-size:20px;line-height:1.06;letter-spacing:-.02em;font-weight:700;margin:0 0 7px}
+.card .lede{font-size:13.5px;line-height:1.4;margin:0;font-weight:500}
 
-/* ---------- Section ---------- */
-.section{padding:96px 0 32px;border-bottom:1px solid var(--line)}
-.section:last-of-type{border-bottom:none}
-.sec-head{display:flex;gap:48px;margin-bottom:48px;flex-wrap:wrap}
-.sec-no{font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--muted);letter-spacing:.06em;padding-top:6px;min-width:48px}
-.sec-title{flex:1;min-width:260px}
-.sec-title .role{font-family:'JetBrains Mono',monospace;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:14px}
-.sec-title h2{font-size:clamp(34px,4.6vw,52px);line-height:1.04;letter-spacing:-.025em;font-weight:600;margin:0 0 18px}
-.sec-title .claim{font-size:18px;color:var(--ink-2);max-width:680px;line-height:1.55;margin:0}
-.sec-links{display:flex;gap:10px;flex-wrap:wrap;align-items:flex-start;padding-top:6px}
-.pill{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--ink);border-radius:999px;font-size:13px;font-weight:500;color:var(--ink);border-bottom-color:var(--ink);background:#fff;transition:background .15s}
-.pill:hover{background:var(--ink);color:#fff;border-bottom-color:var(--ink)}
-.pill.primary{background:var(--ink);color:#fff}
-.pill.primary:hover{background:#fff;color:var(--ink)}
-.pill .arr{font-size:11px}
+.metric{margin-top:auto;padding-top:14px}
+.metric .val{font-size:clamp(30px,3.2vw,40px);line-height:1;letter-spacing:-.04em;font-weight:600;
+  display:flex;align-items:baseline;gap:5px}
+.metric .val .u{font-size:.4em;font-weight:600;color:var(--ink-2)}
+.metric .val .arr{font-size:.46em;font-weight:600;color:var(--ink-2);margin:0 1px}
+.metric .lab{font-family:'JetBrains Mono',monospace;font-size:10.5px;line-height:1.45;color:var(--ink-2);margin-top:7px}
+.metric .lab .s{font-weight:500;color:var(--ink);text-transform:uppercase;letter-spacing:.04em}
 
-/* hero row inside each section */
-.proof-row{display:grid;grid-template-columns:minmax(220px,1.1fr) minmax(0,2.1fr);gap:48px;margin-bottom:48px;align-items:start}
-@media(max-width:760px){.proof-row{grid-template-columns:1fr;gap:24px}}
-.proof-num{font-size:clamp(64px,11vw,128px);line-height:.92;letter-spacing:-.05em;font-weight:600;color:var(--ink);overflow-wrap:anywhere}
-.proof-num .unit{font-size:.35em;color:var(--muted);font-weight:500;letter-spacing:-.02em;margin-left:6px}
-.proof-num .arrow{display:inline-block;font-size:.4em;color:var(--muted);margin:0 .15em;vertical-align:.18em}
-.proof-num small{display:block;font-size:13px;color:var(--muted);font-family:'JetBrains Mono',monospace;letter-spacing:.04em;text-transform:uppercase;margin-top:14px;font-weight:400}
-.proof-copy p{margin:0 0 18px;font-size:17px;line-height:1.6;color:var(--ink-2)}
-.proof-copy p:last-child{margin-bottom:0}
-.proof-copy strong{font-weight:600;color:var(--ink)}
+/* links — plain text, underline only */
+.links{display:flex;gap:16px;margin-top:12px}
+.links a{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500}
+.links a:hover{background:var(--ink);color:var(--yellow)}
+.links .wake{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--ink-2);align-self:center}
 
-/* metric tiles */
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:32px}
-.tiles > div{background:#fff;padding:22px 20px;min-width:0;overflow-wrap:anywhere}
-.tile-num{font-size:30px;line-height:1.05;letter-spacing:-.025em;font-weight:600;margin-bottom:4px}
-.tile-num .acc{color:var(--accent)}
-.tile-lab{font-size:12px;color:var(--muted);font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em;line-height:1.4}
-@media(max-width:900px){.tiles{grid-template-columns:repeat(2,1fr)}}
-
-/* scope/caveat */
-.scope{border-left:2px solid var(--ink);padding:6px 0 6px 18px;margin:0 0 14px}
-.scope-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--surface-2);padding:3px 8px;border-radius:3px;margin-bottom:8px}
-.scope-tag.live{background:#dcfce7;color:#0a5d28}
-.scope-tag.oracle{background:#fef3c7;color:#92400e}
-.scope-tag.sim{background:#dbeafe;color:#1e3a8a}
-.scope p{margin:0;font-size:14px;line-height:1.55;color:var(--muted)}
-
-.cmd{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:12px 16px;overflow-x:auto;color:var(--ink-2);line-height:1.55;white-space:pre;margin:14px 0 0}
-
-/* charts */
-.chart{margin:36px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:24px 28px}
-.chart h4{font-family:'JetBrains Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);font-weight:500;margin:0 0 4px;display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
-.chart h4 .src{font-weight:400;color:var(--muted-2);text-transform:none;letter-spacing:.02em;font-size:11px}
-.chart .sub{font-size:13px;color:var(--ink-2);margin:0 0 18px;line-height:1.5}
-.chart svg{display:block;width:100%;height:auto;max-width:100%}
-.chart .legend{font-size:11px;color:var(--muted);margin-top:14px;font-family:'JetBrains Mono',monospace;display:flex;gap:18px;flex-wrap:wrap;letter-spacing:.04em}
-.chart .legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:middle;border-radius:2px}
-@media(max-width:760px){.chart{padding:18px 18px}}
-
-/* screenshots */
-.shot{margin:28px 0 0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#fff}
-.shot a{display:block;border:none;background:var(--surface-2);line-height:0;text-align:center}
-.shot a:hover{opacity:.92}
-.shot img{display:block;width:100%;height:auto;max-width:100%;margin:0 auto}
-.shot.narrow img{width:auto;max-width:740px;margin:0 auto}
-.shot figcaption{padding:14px 18px;font-size:13px;color:var(--ink-2);line-height:1.5;border-top:1px solid var(--line);background:var(--surface);margin:0}
-.shot figcaption .scope-tag{margin-right:8px;vertical-align:1px}
-.shot figcaption b{color:var(--ink);font-weight:600}
-@media(max-width:760px){.shot figcaption{padding:12px 14px;font-size:12.5px}.shot.narrow img{max-width:100%}}
+/* stack — hover/focus reveal */
+.stack{font-family:'JetBrains Mono',monospace;font-size:10px;line-height:1.5;color:var(--ink-2);
+  max-height:0;opacity:0;overflow:hidden;transition:max-height .2s ease,opacity .2s ease,margin-top .2s ease}
+.card:hover .stack,.card:focus-within .stack{max-height:48px;opacity:1;margin-top:10px}
 
 /* ---------- Footer ---------- */
-.foot{padding:80px 0 56px;background:var(--ink);color:#fff;margin-top:0}
-.foot a{color:#fff;border-bottom-color:#404040}
-.foot a:hover{border-bottom-color:#fff}
-.foot-row{display:grid;grid-template-columns:repeat(5,1fr);gap:28px;margin-bottom:48px}
-.foot-row > div{min-width:0;overflow-wrap:anywhere}
-@media(max-width:760px){.foot-row{grid-template-columns:repeat(2,1fr);gap:24px}.foot{padding:56px 0 40px}}
-.foot h4{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#a3a3a3;margin:0 0 12px;font-weight:500;font-family:'JetBrains Mono',monospace}
-.foot ul{list-style:none;padding:0;margin:0;font-size:14px;line-height:1.7}
-.foot-name{font-size:48px;line-height:1;letter-spacing:-.03em;font-weight:600;margin:0 0 8px}
-.foot-role{color:#a3a3a3;font-size:14px}
-.foot-meta{border-top:1px solid #262626;padding-top:24px;font-size:12px;color:#737373;font-family:'JetBrains Mono',monospace;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.foot{margin-top:28px;padding:16px 0 18px;border-top:2px solid var(--ink);font-size:12.5px;font-weight:500;
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.foot a:hover{background:var(--ink);color:var(--yellow)}
+.foot .note{color:var(--ink-2);font-family:'JetBrains Mono',monospace;font-size:11px}
 
-/* small util */
-.sub{color:var(--muted);font-size:13px}
-.hl{color:var(--accent);font-weight:600}
+@media(max-width:880px){.grid{grid-template-columns:repeat(2,1fr);column-gap:26px}}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.bar{flex-direction:column;align-items:flex-start;gap:8px}}
+@media(hover:none){.stack{max-height:none;opacity:1;margin-top:10px}}
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<header class="bar">
-  <div class="bar-row">
-    <span class="bar-name">Julia Edomskikh</span>
-    <span class="bar-role">Senior Data Analyst · DE</span>
-    <nav class="bar-nav">
-      <a href="#auto">Auto_BI</a>
-      <a href="#abtest">AB_TEST</a>
-      <a href="#de">DE_project</a>
-      <a href="#rag">RAG</a>
-      <a href="#gracekelly">GraceKelly</a>
-      <a href="cv/Julia_Edomskikh_CV.pdf" target="_blank" rel="noopener">CV</a>
-      <a href="#contact">Контакт</a>
-    </nav>
-  </div>
-</header>
+  <header class="bar">
+    <div class="who">Julia Edomskikh <span>Senior Data Analyst / Data Engineer</span></div>
+    <a class="lnk" href="tests.html">Тесты и бенчмарки →</a>
+  </header>
 
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-eyebrow">Proof Pack · 2026-06-16</div>
-    <h1>Measured <em>before</em> believed.</h1>
-    <p class="hero-lede">Пять data/AI-проектов, у которых сначала появилось измерение и только потом — публичная формулировка. Каждое число на этой странице имеет область применения: live, offline-oracle или simulation. Ничего, что не было измерено, на этой странице не заявлено.</p>
+  <section class="hero">
+    <h1>Projects to share</h1>
+    <p>На каждый — что решает, ключевая цифра, ссылки на код и живую версию.</p>
+  </section>
 
-    <div class="hero-shelf">
-      <a class="major feature" href="#auto" style="grid-column:1/-1">
-        <div class="scope"><span class="scope-tag live">live · real DWH</span></div>
-        <div class="hg-num num">15.05<span class="pct">M</span></div>
-        <div class="hg-lab"><b>NL→dashboard поверх реального DWH.</b> X5 Retail Hero (15.05M line items) в ClickHouse; feasibility-advisor с реальным EXPLAIN-evidence, детерминированный аудит витрины (18 findings).</div>
-      </a>
-      <a class="major" href="#abtest">
-        <div class="scope"><span class="scope-tag live">live · product</span></div>
-        <div class="hg-num num">57<span class="pct">%</span></div>
-        <div class="hg-lab"><b>False-positive risk caught before launch.</b> A/A-тест на идентичных страницах в платном sample-size инструменте.</div>
-      </a>
-      <a class="major" href="#de">
-        <div class="scope"><span class="scope-tag live">live · load</span></div>
-        <div class="hg-num num">26 000<span class="arr">→</span>14<span class="pct">ms</span></div>
-        <div class="hg-lab"><b>Aggregate p50, 506 requests, 0 failures.</b> Свежий Locust benchmark 50 users / 60s, gate PASS.</div>
-      </a>
-      <a class="minor" href="#rag">
-        <div class="scope"><span class="scope-tag oracle">offline · oracle</span></div>
-        <div class="hg-num num">0.99</div>
-        <div class="hg-lab">citation_accuracy · 29 hand-crafted cases, RAG-пайплайн доказан в discipline, live LLM quality — отдельный benchmark.</div>
-      </a>
-      <a class="minor" href="#gracekelly">
-        <div class="scope"><span class="scope-tag sim">simulation</span></div>
-        <div class="hg-num num">1.00</div>
-        <div class="hg-lab">unstable-claim detection · 35 simulated cases поверх live gracekelly.core. False-consensus floor `0.50` заявлен явно.</div>
-      </a>
-    </div>
-  </div>
-</section>
+  <main class="grid">
 
-<!-- ============ 01 Auto_BI ============ -->
-<section class="section" id="auto">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">01 / 05</div>
-      <div class="sec-title">
-        <div class="role">Data / AI — NL→dashboard агент поверх DWH</div>
-        <h2>Auto_BI</h2>
-        <p class="claim">Дашборд начинается с вопроса, а не с перетаскивания полей. Запрос на естественном языке проходит IR-first разбор → feasibility-advisor с реальным <code class="mono">EXPLAIN</code>-evidence → детерминированный аудит витрины → генерацию Superset-дашборда поверх DWH. Что нельзя посчитать честно — advisor говорит до построения, а не после.</p>
+    <article class="card">
+      <h2>AgentFlow</h2>
+      <p class="lede">Контекст по сущности для AI-агента — за миллисекунды, а не за вчерашний DWH.</p>
+      <div class="metric">
+        <div class="val num">14<span class="u">ms</span></div>
+        <div class="lab">p50 entity lookup</div>
       </div>
-      <div class="sec-links">
-        <a class="pill primary" href="https://github.com/brownjuly2003-code/Auto_BI" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
+      <div class="links">
+        <a href="https://github.com/brownjuly2003-code/agentflow" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
-    </div>
+      <div class="stack">FastAPI · DuckDB · sqlglot · Locust · OpenAPI 3.1</div>
+    </article>
 
-    <div class="proof-row">
-      <div class="proof-num num">15.05<span class="unit">M</span><small>LINE ITEMS · реальный DWH (X5 Retail Hero, публичный датасет) в ClickHouse</small></div>
-      <div class="proof-copy">
-        <p>Phase 1 закрыта на <strong>реальном DWH</strong>, а не на игрушечной схеме: срез X5 Retail Hero — <strong>15.05M line items / 2.6M заказов / 400k клиентов / 43k товаров</strong> в ClickHouse, доступ агента — read-only роль. Интроспекция дала <code class="mono">semantic/model_x5.yaml</code> (3 таблицы, 37 колонок) и выловила 2 реальных бага интроспектора.</p>
-        <p>Команда <code class="mono">auto_bi gaps</code> — детерминированный аудит витрины (описания, изоляция, all-NULL/constant колонки, грануляция) → <strong>18 findings (1 critical / 14 warn / 3 info)</strong>, 10 кандидатов в change-request. Feasibility-advisor выдаёт вердикт с реальным <code class="mono">EXPLAIN</code>-evidence (scan 100%, GROUP BY 401k строк), а не догадкой. <strong>140 pytest passed.</strong></p>
+    <article class="card">
+      <h2>RAG Support Assistant</h2>
+      <p class="lede">Без ссылки это не ответ. Низкая уверенность — отказ и передача человеку.</p>
+      <div class="metric">
+        <div class="val num">0.99</div>
+        <div class="lab">citation accuracy</div>
       </div>
-    </div>
-
-    <div class="tiles">
-      <div><div class="tile-num num"><span class="acc">18</span></div><div class="tile-lab">gaps findings · 1 critical / 14 warn / 3 info</div></div>
-      <div><div class="tile-num num">37</div><div class="tile-lab">колонок интроспектировано · 3 таблицы</div></div>
-      <div><div class="tile-num num">140</div><div class="tile-lab">pytest passed</div></div>
-      <div><div class="tile-num num">100<span class="pct">%</span></div><div class="tile-lab">EXPLAIN scan · advisor с реальным evidence</div></div>
-    </div>
-
-    <div class="scope">
-      <span class="scope-tag live">live · real DWH</span>
-      <p>Данные — публичный датасет X5 Retail Hero (хакатон, не клиентские данные), загружен в реальный ClickHouse-стенд; advisor читает реальный <code class="mono">EXPLAIN</code>, аудит детерминирован. Доказательство механики на настоящем DWH, не на синтетике.</p>
-      <pre class="cmd">auto_bi gaps  →  docs/gaps_report_marts_x5.md  (18 findings)</pre>
-    </div>
-
-    <div class="chart">
-      <h4><span>DM gaps audit · 18 findings by severity</span><span class="src">source: docs/gaps_report_marts_x5.md</span></h4>
-      <p class="sub">Детерминированный аудит витрины до построения дашборда: критичное (фуллскан-грануляция) отделено от предупреждений и информационных. 10 из 18 — кандидаты в change-request.</p>
-      <svg viewBox="0 0 720 140" xmlns="http://www.w3.org/2000/svg" aria-label="Auto_BI gaps findings by severity">
-        <line x1="60" y1="96" x2="700" y2="96" stroke="#e5e5e5"/>
-        <g font-family="JetBrains Mono, monospace" font-size="10" fill="#737373">
-          <text x="60" y="114" text-anchor="middle">0</text>
-          <text x="238" y="114" text-anchor="middle">5</text>
-          <text x="416" y="114" text-anchor="middle">10</text>
-          <text x="593" y="114" text-anchor="middle">15</text>
-          <text x="700" y="114" text-anchor="middle">18</text>
-        </g>
-        <rect x="60" y="44" width="35.6" height="40" fill="#9f1239"/>
-        <rect x="95.6" y="44" width="497.8" height="40" fill="#92400e"/>
-        <rect x="593.4" y="44" width="106.6" height="40" fill="#737373"/>
-        <g font-family="Inter" font-weight="600" font-size="13" fill="#fff">
-          <text x="77" y="69" text-anchor="middle">1</text>
-          <text x="344" y="69" text-anchor="middle">14</text>
-          <text x="646" y="69" text-anchor="middle">3</text>
-        </g>
-        <text x="380" y="132" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">findings = critical + warn + info (детерминированный аудит, без LLM)</text>
-      </svg>
-      <div class="legend"><span><i style="background:#9f1239"></i>critical · фуллскан-грануляция</span><span><i style="background:#92400e"></i>warn</span><span><i style="background:#737373"></i>info</span><span>10/18 → change-request</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 02 AB_TEST ============ -->
-<section class="section" id="abtest">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">02 / 05</div>
-      <div class="sec-title">
-        <div class="role">Product / Data Analyst — pre-launch experiment design</div>
-        <h2>AB Test Research Designer</h2>
-        <p class="claim">Experiments deserve engineering. Не sample-size calculator, а research-design слой до платформы экспериментов: peeking, SRM, multi-arm risk, CUPED и guardrails ловятся до того, как команда нажмёт Launch.</p>
+      <div class="links">
+        <a href="https://github.com/brownjuly2003-code/RAG_Support_Assistant" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://brownjuly2003-code.github.io/RAG_Support_Assistant/" target="_blank" rel="noopener">Docs ↗</a>
       </div>
-      <div class="sec-links">
-        <a class="pill primary" href="https://liovina-ab-test-research-designer.hf.space" target="_blank" rel="noopener">Live demo <span class="arr">↗</span></a>
-        <a class="pill" href="benchmarks/ab-test-product-evidence-2026-05-12.md" target="_blank">Evidence <span class="arr">↗</span></a>
+      <div class="stack">Python · hybrid retrieval · rerank · mypy strict · Astro docs</div>
+    </article>
+
+    <article class="card">
+      <h2>AB Test Research Designer</h2>
+      <p class="lede">Research-design слой до платформы экспериментов — ловит статошибки до кнопки Launch.</p>
+      <div class="metric">
+        <div class="val num">5</div>
+        <div class="lab">проверок до запуска · SRM · sequential · CUPED · Bayesian · guardrails</div>
       </div>
-    </div>
-
-    <div class="proof-row">
-      <div class="proof-num num">57<span class="unit">%</span><small>FALSE-DECLARATION rate under peeking (literature) · Johari et al. KDD 2017</small></div>
-      <div class="proof-copy">
-        <p><strong>57% — это литература, не self-measurement.</strong> KDD 2017 «Peeking at A/B Tests» (Johari, Pekelis, Walsh, Koomen) показал: при continuous peeking fixed-horizon тесты декларируют «победу» в большинстве A/A-симуляций. Это причина, по которой нужен research-design слой до эксперимент-платформы — не то, что меряет этот продукт о себе.</p>
-        <p><strong>Реальный product output</strong> (live HF Space, captured Playwright 2026-05-10): baseline 4.2% + MDE 7% → <strong>75 514 / variant, 21 days</strong>; group-sequential O'Brien-Fleming, 4 looks, z = 4.05 / 2.86 / 2.34 / 2.02; SRM на 49.0/51.0 split → <strong>χ² = 20, p ≈ 8·10⁻⁶</strong>; CUPED ρ²=0.25 даёт <strong>591 → 443</strong>; Bayesian credible interval — 277/variant.</p>
+      <div class="links">
+        <a href="https://github.com/brownjuly2003-code/ab-test-research-designer" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://liovina-ab-test-research-designer.hf.space" target="_blank" rel="noopener" title="Free-tier демо: первый запуск ~30с на прогрев">Live ↗</a>
+        <span class="wake">проснётся ~30с</span>
       </div>
-    </div>
+      <div class="stack">FastAPI · React 19 · TypeScript · SQLite · Playwright E2E · 7 локалей</div>
+    </article>
 
-    <div class="tiles">
-      <div><div class="tile-num num">75 514</div><div class="tile-lab">sample / variant · MDE 1%</div></div>
-      <div><div class="tile-num num">21<span class="sub mono"> дн</span></div><div class="tile-lab">trial duration · group-sequential</div></div>
-      <div><div class="tile-num num">χ²=20</div><div class="tile-lab">SRM · p ≈ 8·10⁻⁶</div></div>
-      <div><div class="tile-num num">−25<span class="pct">%</span></div><div class="tile-lab">sample size via CUPED</div></div>
-    </div>
-
-    <div class="scope">
-      <span class="scope-tag live">live · product</span>
-      <p>Цифры в tiles — direct UI output живого HF Space, captured Playwright 2026-05-10. 57% — KDD 2017 paper, явно помечено как мотивирующая литература, а не self-measurement. Trust-layer: 351 backend tests, 200+ frontend tests, 89% coverage gate, 7 локалей с RTL.</p>
-    </div>
-
-    <div class="chart">
-      <h4><span>O'Brien-Fleming Z-boundaries · 4 interim looks</span><span class="src">source: live HF Space · captured 2026-05-10</span></h4>
-      <p class="sub">Чем раньше «подглядывание» — тем строже порог. К финальному look (100% инфы) граница опускается до Z = 2.02 — обычный двусторонний 5%-критерий. Промежуточные стопы безопасны.</p>
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" aria-label="OBF Z-boundaries chart">
-        <!-- grid -->
-        <line x1="60" y1="170" x2="700" y2="170" stroke="#e5e5e5" stroke-width="1"/>
-        <line x1="60" y1="20" x2="60" y2="170" stroke="#e5e5e5" stroke-width="1"/>
-        <!-- y ticks: Z=0..5 -->
-        <g font-family="JetBrains Mono, monospace" font-size="10" fill="#737373">
-          <text x="52" y="174" text-anchor="end">0</text>
-          <text x="52" y="144" text-anchor="end">1</text>
-          <text x="52" y="114" text-anchor="end">2</text>
-          <text x="52" y="84" text-anchor="end">3</text>
-          <text x="52" y="54" text-anchor="end">4</text>
-          <text x="52" y="24" text-anchor="end">5</text>
-        </g>
-        <!-- horizontal Z=1.96 reference -->
-        <line x1="60" y1="111.2" x2="700" y2="111.2" stroke="#a16207" stroke-width="1" stroke-dasharray="4 4" opacity=".5"/>
-        <text x="704" y="115" font-family="JetBrains Mono, monospace" font-size="10" fill="#a16207">Z=1.96 · α=.05 fixed</text>
-        <!-- bars -->
-        <g>
-          <!-- bar 1: Z=4.05 -->
-          <rect x="100" y="48.5" width="100" height="121.5" fill="#0a0a0a"/>
-          <text x="150" y="42" text-anchor="middle" font-family="Inter" font-weight="600" font-size="16" fill="#0a0a0a">4.05</text>
-          <text x="150" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">look 1 · 25%</text>
-          <text x="150" y="159" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff" opacity=".8">α=.0001</text>
-          <!-- bar 2: Z=2.86 -->
-          <rect x="240" y="84.2" width="100" height="85.8" fill="#0a0a0a"/>
-          <text x="290" y="78" text-anchor="middle" font-family="Inter" font-weight="600" font-size="16" fill="#0a0a0a">2.86</text>
-          <text x="290" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">look 2 · 50%</text>
-          <text x="290" y="159" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff" opacity=".8">α=.0056</text>
-          <!-- bar 3: Z=2.34 -->
-          <rect x="380" y="99.8" width="100" height="70.2" fill="#0a0a0a"/>
-          <text x="430" y="93" text-anchor="middle" font-family="Inter" font-weight="600" font-size="16" fill="#0a0a0a">2.34</text>
-          <text x="430" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">look 3 · 75%</text>
-          <text x="430" y="159" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff" opacity=".8">α=.0236</text>
-          <!-- bar 4: Z=2.02 (final, highlight) -->
-          <rect x="520" y="109.4" width="100" height="60.6" fill="#2563eb"/>
-          <text x="570" y="103" text-anchor="middle" font-family="Inter" font-weight="600" font-size="16" fill="#2563eb">2.02</text>
-          <text x="570" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">look 4 · 100%</text>
-          <text x="570" y="159" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="9" fill="#fff" opacity=".9">α=.0500</text>
-        </g>
-        <text x="700" y="16" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#737373">Z-boundary</text>
-      </svg>
-      <div class="legend"><span><i style="background:#0a0a0a"></i>interim stop</span><span><i style="background:#2563eb"></i>final look · α exhausted</span><span><i style="background:transparent;border:1px dashed #a16207"></i>fixed-horizon Z=1.96</span></div>
-    </div>
-
-
-  </div>
-</section>
-
-<!-- ============ 03 DE_project ============ -->
-<section class="section" id="de">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">03 / 05</div>
-      <div class="sec-title">
-        <div class="role">Data Engineer — real-time entity context для AI-агентов</div>
-        <h2>DE_project / AgentFlow</h2>
-        <p class="claim">AI-агент не должен ждать вчерашний DWH. История — collapse latency: entity context из заметного человеком ожидания превращается в machine-speed lookup.</p>
+    <article class="card">
+      <h2>Auto BI</h2>
+      <p class="lede">Запрос текстом или раскладкой полей → готовый дашборд. LLM не пишет нативный формат BI.</p>
+      <div class="metric">
+        <div class="val num">1<span class="arr">→</span>2<span class="u">BI</span></div>
+        <div class="lab">Superset + DataLens, один spec</div>
       </div>
-      <div class="sec-links">
-        <a class="pill primary" href="benchmarks/de_project-benchmark-2026-05-12.md" target="_blank">Locust benchmark <span class="arr">↗</span></a>
+      <div class="links">
+        <a href="https://github.com/brownjuly2003-code/Auto_BI" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
-    </div>
+      <div class="stack">Python · pydantic IR · sqlglot · ClickHouse / Greenplum · Superset / DataLens</div>
+    </article>
 
-    <div class="proof-row">
-      <div class="proof-num num">26 000<span class="arrow">→</span>14<span class="unit">ms</span><small>aggregate p50 · 506 requests · 0 failures · 50 users / 60s</small></div>
-      <div class="proof-copy">
-        <p>Stream-ingest питает semantic-слой, типизированные контракты выставляют entity lookup, Python/TS SDK держат клиентов синхронизированными, NL-to-SQL проходит через sqlglot AST-валидацию перед выполнением.</p>
-        <p>Свежий локальный benchmark от 2026-05-12 поверх DuckDB: aggregate <strong>p50 14ms</strong>, <strong>p99 280ms</strong>, entity endpoints держатся в <strong>p50 11-14ms</strong>, p99 ≤ 330ms; <code class="mono">scripts/check_performance.py</code> вернул <strong>PASS</strong> против baseline.</p>
+    <article class="card">
+      <h2>NL→SQL Assistant</h2>
+      <p class="lede">Вопрос на русском или английском → корректный SQL и ответ. Read-only, AST-guard.</p>
+      <div class="metric">
+        <div class="val num">94.0<span class="u">%</span></div>
+        <div class="lab">BIRD Mini-Dev · выше human-expert</div>
       </div>
-    </div>
-
-    <div class="tiles">
-      <div><div class="tile-num num"><span class="acc">14</span><span class="sub mono"> ms</span></div><div class="tile-lab">aggregate p50</div></div>
-      <div><div class="tile-num num">280<span class="sub mono"> ms</span></div><div class="tile-lab">aggregate p99</div></div>
-      <div><div class="tile-num num">330<span class="sub mono"> ms</span></div><div class="tile-lab">worst entity p99</div></div>
-      <div><div class="tile-num num">0</div><div class="tile-lab">failures · gate PASS</div></div>
-    </div>
-
-    <div class="scope">
-      <span class="scope-tag live">live · load benchmark</span>
-      <p>Locust 50 users, spawn rate 10/s, 60s, поверх свежей DuckDB-выборки. <code class="mono">tests/load/locustfile.py</code>. Сравнение с release-gate, не с маркетинговой копией.</p>
-      <pre class="cmd">python scripts/run_benchmark.py --users 50 --spawn-rate 10 --run-time 60s</pre>
-    </div>
-
-    <div class="chart">
-      <h4><span>Aggregate latency vs release gate</span><span class="src">source: benchmarks/de_project-benchmark-2026-05-12.json</span></h4>
-      <p class="sub">Release gate: p50 &lt; 100 ms, p99 &lt; 500 ms. Worst entity endpoint попадает в p99 330 ms — комфортный запас.</p>
-      <svg viewBox="0 0 720 200" xmlns="http://www.w3.org/2000/svg" aria-label="Latency vs release gate">
-        <!-- axes -->
-        <line x1="60" y1="170" x2="700" y2="170" stroke="#e5e5e5"/>
-        <line x1="60" y1="20" x2="60" y2="170" stroke="#e5e5e5"/>
-        <!-- y ticks 0..500ms -->
-        <g font-family="JetBrains Mono, monospace" font-size="10" fill="#737373">
-          <text x="52" y="174" text-anchor="end">0</text>
-          <text x="52" y="144" text-anchor="end">100</text>
-          <text x="52" y="114" text-anchor="end">200</text>
-          <text x="52" y="84" text-anchor="end">300</text>
-          <text x="52" y="54" text-anchor="end">400</text>
-          <text x="52" y="24" text-anchor="end">500</text>
-        </g>
-        <text x="700" y="16" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="10" fill="#737373">milliseconds</text>
-        <!-- gate lines -->
-        <line x1="60" y1="140" x2="700" y2="140" stroke="#a16207" stroke-width="1" stroke-dasharray="4 4" opacity=".6"/>
-        <text x="704" y="144" font-family="JetBrains Mono, monospace" font-size="10" fill="#a16207">gate · p50 &lt; 100</text>
-        <line x1="60" y1="20" x2="700" y2="20" stroke="#a16207" stroke-width="1" stroke-dasharray="4 4" opacity=".4"/>
-        <text x="704" y="32" font-family="JetBrains Mono, monospace" font-size="10" fill="#a16207">gate · p99 &lt; 500</text>
-        <!-- bars: aggregate p50/p95/p99 -->
-        <g>
-          <rect x="120" y="165.8" width="80" height="4.2" fill="#2563eb"/>
-          <text x="160" y="160" text-anchor="middle" font-family="Inter" font-weight="600" font-size="16" fill="#2563eb">14<tspan font-size="11" fill="#737373"> ms</tspan></text>
-          <text x="160" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">aggregate p50</text>
-
-          <rect x="240" y="140.9" width="80" height="29.1" fill="#0a0a0a"/>
-          <text x="280" y="135" text-anchor="middle" font-family="Inter" font-weight="600" font-size="16" fill="#0a0a0a">97<tspan font-size="11" fill="#737373"> ms</tspan></text>
-          <text x="280" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">aggregate p95</text>
-
-          <rect x="360" y="86" width="80" height="84" fill="#0a0a0a"/>
-          <text x="400" y="80" text-anchor="middle" font-family="Inter" font-weight="600" font-size="16" fill="#0a0a0a">280<tspan font-size="11" fill="#737373"> ms</tspan></text>
-          <text x="400" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">aggregate p99</text>
-
-          <rect x="480" y="71" width="80" height="99" fill="#0a0a0a" opacity=".55"/>
-          <text x="520" y="65" text-anchor="middle" font-family="Inter" font-weight="600" font-size="16" fill="#0a0a0a">330<tspan font-size="11" fill="#737373"> ms</tspan></text>
-          <text x="520" y="190" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">worst entity p99</text>
-        </g>
-      </svg>
-      <div class="legend"><span><i style="background:#2563eb"></i>headline p50</span><span><i style="background:#0a0a0a"></i>aggregate</span><span><i style="background:#0a0a0a;opacity:.55"></i>worst entity endpoint</span><span><i style="background:transparent;border:1px dashed #a16207"></i>release gate</span></div>
-    </div>
-
-
-  </div>
-</section>
-
-<!-- ============ 04 RAG ============ -->
-<section class="section" id="rag">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">04 / 05</div>
-      <div class="sec-title">
-        <div class="role">AI Analyst — production RAG-агент с retrieval и confidence gates</div>
-        <h2>RAG Support Assistant</h2>
-        <p class="claim">Без ссылки это не ответ. Вопрос проходит classify → hybrid retrieval → rerank → generate → verify; финальный ответ несёт inline-citations [N], открывает source-panel и route'ится к человеку, если confidence не выдержал.</p>
+      <div class="links">
+        <a href="https://github.com/brownjuly2003-code/NL_SQL" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://liovina-nl-sql.hf.space" target="_blank" rel="noopener" title="Free-tier демо: первый запуск ~30с на прогрев">Live ↗</a>
+        <span class="wake">проснётся ~30с</span>
       </div>
-      <div class="sec-links">
-        <a class="pill primary" href="https://brownjuly2003-code.github.io/RAG_Support_Assistant/architecture/providers/" target="_blank" rel="noopener">Live docs <span class="arr">↗</span></a>
-        <a class="pill" href="https://github.com/brownjuly2003-code/RAG_Support_Assistant" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
-        <a class="pill" href="benchmarks/rag-grounded-benchmark-2026-05-12.md" target="_blank">Benchmark <span class="arr">↗</span></a>
+      <div class="stack">Python · 11-ступенчатый hybrid-пайплайн · sqlglot AST-guard · BIRD scoring</div>
+    </article>
+
+    <article class="card">
+      <h2>GraceKelly</h2>
+      <p class="lede">Одна модель ошибается уверенно. Несколько — спорят, и видно, где согласие.</p>
+      <div class="metric">
+        <div class="val num">1.00</div>
+        <div class="lab">unstable-claim detection</div>
       </div>
+      <div class="links">
+        <a href="https://github.com/brownjuly2003-code/GraceKelly" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://brownjuly2003-code.github.io/GraceKelly/" target="_blank" rel="noopener">Docs ↗</a>
+      </div>
+      <div class="stack">Python · embedding-кластеризация · 5 adapters · mypy strict</div>
+    </article>
+
+  </main>
+
+  <footer class="foot">
+    <div>
+      <a href="mailto:uedomskikh@gmail.com">uedomskikh@gmail.com</a> ·
+      <a href="https://t.me/JuliaPhe" target="_blank" rel="noopener">@JuliaPhe</a> ·
+      <a href="https://github.com/brownjuly2003-code" target="_blank" rel="noopener">github.com/brownjuly2003-code</a>
     </div>
+  </footer>
 
-    <div class="proof-row">
-      <div class="proof-num num">0.99<small>CITATION_ACCURACY · 29-case offline grounded oracle</small></div>
-      <div class="proof-copy">
-        <p>29 ручных кейсов в 10 категориях: warranty, returns, error_codes, installation, billing, general, multi_hop, contradiction_trap, off_topic, insufficient_data. Каждый кейс несёт expected source IDs, expected route и оракульный ответ с явными <code class="mono">[N]</code>-цитатами.</p>
-        <p>Цитаты проверены против retrieved-docs по keyword-stem. Escalation distinguished от рекомендации «обратитесь в поддержку»: триггерят только сильные маркеры — «ответить нельзя», «противоречие», «недостаточно данных». Route distribution: <strong>auto 21 / human 8 / retry 0 / error 0</strong>.</p>
-      </div>
-    </div>
-
-    <div class="tiles">
-      <div><div class="tile-num num"><span class="acc">1.00</span></div><div class="tile-lab">recall@5 · required docs ⊆ top-5</div></div>
-      <div><div class="tile-num num">1.00</div><div class="tile-lab">citation_coverage · auto-route</div></div>
-      <div><div class="tile-num num">0.99</div><div class="tile-lab">citation_accuracy · [N] → keyword match</div></div>
-      <div><div class="tile-num num">1.00</div><div class="tile-lab">escalation_accuracy · 29/29</div></div>
-    </div>
-
-    <div class="scope">
-      <span class="scope-tag oracle">offline_oracle · simulated retrieval</span>
-      <p>Не live RAG-quality benchmark. LLM не вызывается, retrieval смоделирован, ответы оракульные. Это доказательство retrieval/citation discipline самого пайплайна, не качества генерации live-модели. Live quality остаётся отдельным benchmark.</p>
-      <pre class="cmd">python harness/rag_grounded_eval.py \
-  --output-json benchmarks/rag-grounded-benchmark-2026-05-12.json</pre>
-    </div>
-
-    <div class="chart">
-      <h4><span>Aggregate metrics · 29-case offline oracle</span><span class="src">source: benchmarks/rag-grounded-benchmark-2026-05-12.json</span></h4>
-      <p class="sub">recall@5 / coverage / accuracy / escalation у потолка. faithfulness и context_recall — высокие. answer_relevancy и context_precision просели потому, что keyword-fallback substring-match не справляется с русскими склонениями.</p>
-      <svg viewBox="0 0 720 280" xmlns="http://www.w3.org/2000/svg" aria-label="RAG aggregate metrics">
-        <!-- baseline -->
-        <line x1="240" y1="10" x2="240" y2="270" stroke="#e5e5e5"/>
-        <line x1="660" y1="10" x2="660" y2="270" stroke="#e5e5e5"/>
-        <g font-family="JetBrains Mono, monospace" font-size="10" fill="#737373">
-          <text x="240" y="282" text-anchor="middle">0.00</text>
-          <text x="450" y="282" text-anchor="middle">0.50</text>
-          <text x="660" y="282" text-anchor="middle">1.00</text>
-        </g>
-        <!-- bars -->
-        <g font-family="Inter, sans-serif" font-size="13" fill="#0a0a0a">
-          <!-- row 1: recall@5 = 1.00 (highlight) -->
-          <text x="232" y="32" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#525252">recall@5</text>
-          <rect x="240" y="20" width="420" height="20" fill="#2563eb"/>
-          <text x="668" y="35" font-weight="600">1.00</text>
-          <!-- row 2 -->
-          <text x="232" y="62" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#525252">citation_coverage</text>
-          <rect x="240" y="50" width="420" height="20" fill="#0a0a0a"/>
-          <text x="668" y="65" font-weight="600">1.00</text>
-          <!-- row 3 -->
-          <text x="232" y="92" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#525252">citation_accuracy</text>
-          <rect x="240" y="80" width="414" height="20" fill="#2563eb"/>
-          <text x="668" y="95" font-weight="600">0.99</text>
-          <!-- row 4 -->
-          <text x="232" y="122" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#525252">escalation_accuracy</text>
-          <rect x="240" y="110" width="420" height="20" fill="#0a0a0a"/>
-          <text x="668" y="125" font-weight="600">1.00</text>
-          <!-- row 5 -->
-          <text x="232" y="152" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#525252">context_recall</text>
-          <rect x="240" y="140" width="384" height="20" fill="#0a0a0a"/>
-          <text x="628" y="155" font-weight="600">0.91</text>
-          <!-- row 6 -->
-          <text x="232" y="182" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#525252">faithfulness</text>
-          <rect x="240" y="170" width="297" height="20" fill="#0a0a0a"/>
-          <text x="541" y="185" font-weight="600">0.71</text>
-          <!-- row 7 (keyword-fallback caveat zone) -->
-          <text x="232" y="212" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#737373">answer_relevancy</text>
-          <rect x="240" y="200" width="104" height="20" fill="#737373" opacity=".6"/>
-          <text x="348" y="215" font-weight="600" fill="#737373">0.25 *</text>
-          <!-- row 8 -->
-          <text x="232" y="242" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#737373">context_precision</text>
-          <rect x="240" y="230" width="88" height="20" fill="#737373" opacity=".6"/>
-          <text x="332" y="245" font-weight="600" fill="#737373">0.21 *</text>
-        </g>
-      </svg>
-      <div class="legend"><span><i style="background:#2563eb"></i>headline</span><span><i style="background:#0a0a0a"></i>measured</span><span><i style="background:#737373;opacity:.6"></i>* keyword-fallback artefact</span></div>
-    </div>
-
-
-  </div>
-</section>
-
-<!-- ============ 05 GraceKelly ============ -->
-<section class="section" id="gracekelly">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="sec-no">05 / 05</div>
-      <div class="sec-title">
-        <div class="role">AI Analyst / LLM Platform — multi-model consensus</div>
-        <h2>GraceKelly</h2>
-        <p class="claim">Одна модель может ошибаться уверенно. Один prompt уходит в несколько моделей, ответы сравниваются как claims, embedding-кластеризация показывает agreement, disagreement и instability. Публичная история — Consensus, не каталог режимов.</p>
-      </div>
-      <div class="sec-links">
-        <a class="pill primary" href="https://brownjuly2003-code.github.io/GraceKelly/architecture/adapters/" target="_blank" rel="noopener">Live docs <span class="arr">↗</span></a>
-        <a class="pill" href="https://github.com/brownjuly2003-code/GraceKelly" target="_blank" rel="noopener">GitHub <span class="arr">↗</span></a>
-        <a class="pill" href="benchmarks/gracekelly-claimset-benchmark-2026-05-12.md" target="_blank">Benchmark <span class="arr">↗</span></a>
-      </div>
-    </div>
-
-    <div class="proof-row">
-      <div class="proof-num num">1.00<small>UNSTABLE-CLAIM DETECTION · 35-case claim-set simulation</small></div>
-      <div class="proof-copy">
-        <p>35 кейсов в 8 категориях (factual unanimous / factual strong / ambiguous split / contradictory / trap false consensus / trap majority wrong / insufficient data / unstable). На каждый кейс — 5 симулированных ответов с известными group-labels.</p>
-        <p>На симулированной similarity-матрице (same-group 0.93, different 0.35, abstain-vs-other 0.20) гоняются <em>живые модули</em> <code class="mono">gracekelly.core</code>: <code class="mono">clustering_hac</code>, <code class="mono">cluster_confidence</code>, <code class="mono">divergence</code>. Каждая из 8 категорий получает ровно ту дискриминацию, которую заявляет divergence-порог.</p>
-      </div>
-    </div>
-
-    <div class="tiles">
-      <div><div class="tile-num num"><span class="acc">1.00</span></div><div class="tile-lab">unstable_claim_detection · 8/8 not-ACCEPT</div></div>
-      <div><div class="tile-num num">1.00</div><div class="tile-lab">abstention_quality · insufficient → expand</div></div>
-      <div><div class="tile-num num">1.00</div><div class="tile-lab">agreement_cluster_purity · top cluster homogeneous</div></div>
-      <div><div class="tile-num num">0.50</div><div class="tile-lab">false_consensus_rate · unanimity floor, reported honestly</div></div>
-    </div>
-
-    <div class="scope">
-      <span class="scope-tag sim">simulation · live core modules</span>
-      <p>Live LLM не вызывается, ответы шаблонные, similarity синтезирована из group-меток. Доказательство дискриминации consensus-механики, не live-снижения галлюцинаций. <strong>false_consensus_rate 0.50</strong> — это известный пол unanimity-based consensus: если все 5 моделей единодушно неправы, движок не имеет ground-truth-оракула. Заявлено явно, не спрятано.</p>
-      <pre class="cmd">python harness/gracekelly_claimset_eval.py \
-  --output-json benchmarks/gracekelly-claimset-benchmark-2026-05-12.json</pre>
-    </div>
-
-    <div class="chart">
-      <h4><span>8 categories vs divergence thresholds</span><span class="src">source: benchmarks/gracekelly-claimset-benchmark-2026-05-12.json</span></h4>
-      <p class="sub">Каждая категория попадает в свою зону по consensus_score = (top-cluster ratio) × (intra-similarity). Только две категории сидят в зелёной ACCEPT-зоне: настоящие unanimous-факты и unanimous-ловушки. Это и есть пол unanimity-based consensus, заявленный явно.</p>
-      <svg viewBox="0 0 720 240" xmlns="http://www.w3.org/2000/svg" aria-label="GraceKelly divergence thresholds">
-        <!-- zone backgrounds -->
-        <rect x="60" y="20" width="448" height="150" fill="#fef2f2"/>
-        <rect x="508" y="20" width="128" height="150" fill="#fef3c7"/>
-        <rect x="636" y="20" width="64" height="150" fill="#dcfce7"/>
-        <!-- axis line -->
-        <line x1="60" y1="170" x2="700" y2="170" stroke="#0a0a0a"/>
-        <!-- zone labels -->
-        <g font-family="JetBrains Mono, monospace" font-size="10" fill="#525252">
-          <text x="284" y="36" text-anchor="middle" fill="#9f1239">EXPAND · &lt; 0.70</text>
-          <text x="572" y="36" text-anchor="middle" fill="#92400e">DEBATE · 0.70–0.89</text>
-          <text x="668" y="36" text-anchor="middle" fill="#166534">ACCEPT</text>
-          <text x="668" y="48" text-anchor="middle" fill="#166534">≥ 0.90</text>
-        </g>
-        <!-- x ticks -->
-        <g font-family="JetBrains Mono, monospace" font-size="10" fill="#737373">
-          <text x="60" y="188" text-anchor="middle">0.0</text>
-          <text x="188" y="188" text-anchor="middle">0.2</text>
-          <text x="316" y="188" text-anchor="middle">0.4</text>
-          <text x="444" y="188" text-anchor="middle">0.6</text>
-          <text x="572" y="188" text-anchor="middle">0.8</text>
-          <text x="700" y="188" text-anchor="middle">1.0</text>
-          <text x="380" y="232" text-anchor="middle" fill="#525252">consensus_score = (top-cluster ratio) × (avg intra-similarity)</text>
-        </g>
-        <!-- dots: y placed visually, x = 60 + score*640 -->
-        <g font-family="JetBrains Mono, monospace" font-size="11" fill="#0a0a0a">
-          <!-- factual_unanimous score 0.93 -->
-          <circle cx="655" cy="60" r="6" fill="#166534"/>
-          <text x="643" y="64" text-anchor="end">factual_unanimous</text>
-          <!-- trap_false_consensus score 0.93 (same x, separate row) -->
-          <circle cx="655" cy="80" r="6" fill="#9f1239" stroke="#0a0a0a" stroke-width="1"/>
-          <text x="643" y="84" text-anchor="end">trap_false_consensus *</text>
-          <!-- factual_strong score 0.744 -->
-          <circle cx="536" cy="100" r="6" fill="#92400e"/>
-          <text x="524" y="104" text-anchor="end">factual_strong</text>
-          <!-- trap_majority_wrong score 0.744 -->
-          <circle cx="536" cy="120" r="6" fill="#92400e" stroke="#0a0a0a" stroke-width="1"/>
-          <text x="524" y="124" text-anchor="end">trap_majority_wrong</text>
-          <!-- ambiguous_split score 0.558 -->
-          <circle cx="417" cy="140" r="6" fill="#9f1239"/>
-          <text x="405" y="144" text-anchor="end">ambiguous_split</text>
-          <!-- contradictory + insufficient_data score 0.558 -->
-          <circle cx="417" cy="60" r="6" fill="#9f1239"/>
-          <text x="405" y="64" text-anchor="end">contradictory</text>
-          <circle cx="417" cy="80" r="6" fill="#9f1239"/>
-          <text x="405" y="84" text-anchor="end">insufficient_data</text>
-          <!-- unstable score 0.2 -->
-          <circle cx="188" cy="100" r="6" fill="#9f1239"/>
-          <text x="176" y="104" text-anchor="end">unstable</text>
-        </g>
-      </svg>
-      <div class="legend"><span><i style="background:#166534"></i>correct ACCEPT</span><span><i style="background:#92400e"></i>DEBATE</span><span><i style="background:#9f1239"></i>EXPAND</span><span>* unanimity floor — accepted but wrong; reported, not hidden</span></div>
-    </div>
-
-
-  </div>
-</section>
-
-<!-- ============ Methodology bar ============ -->
-<section class="section" style="padding-bottom:80px">
-  <div class="wrap">
-    <div class="sec-head" style="margin-bottom:24px">
-      <div class="sec-no">→</div>
-      <div class="sec-title">
-        <h2 style="font-size:32px">Шкала доказательств</h2>
-        <p class="claim">Не все числа равны. Каждое значение на этой странице помечено тем, как оно получено.</p>
-      </div>
-    </div>
-
-    <div class="tiles" style="margin-bottom:0">
-      <div>
-        <span class="scope-tag live" style="margin-bottom:10px">live · product</span>
-        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Реальный артефакт из работающего продукта — тесты, бенчмарки на свежих данных, метрики прямо из кода.</p>
-      </div>
-      <div>
-        <span class="scope-tag oracle" style="margin-bottom:10px">offline · oracle</span>
-        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Ручной набор кейсов с эталонными ответами и явными цитатами. Проверяет discipline пайплайна, не live-качество модели.</p>
-      </div>
-      <div>
-        <span class="scope-tag sim" style="margin-bottom:10px">simulation</span>
-        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Синтетические входы поверх живых core-модулей. Доказывает механику, не реальный продакшен-эффект.</p>
-      </div>
-      <div>
-        <span class="scope-tag" style="margin-bottom:10px;background:#f3f4f6;color:#525252">not measured</span>
-        <p style="margin:0;font-size:14px;line-height:1.55;color:var(--muted)">Прямо отсутствует. Метрики, которые ещё не пройдены через benchmark, на этой странице не появляются.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<footer class="foot" id="contact">
-  <div class="wrap">
-    <div class="foot-name">Julia Edomskikh</div>
-    <div class="foot-role" style="margin-bottom:48px">Senior Data Analyst / Data Engineer · Москва / Королёв · готова к офису</div>
-
-    <div class="foot-row">
-      <div>
-        <h4>Email</h4>
-        <ul><li><a href="mailto:uedomskikh@gmail.com">uedomskikh@gmail.com</a></li></ul>
-      </div>
-      <div>
-        <h4>Telegram</h4>
-        <ul><li><a href="https://t.me/JuliaPhe" target="_blank" rel="noopener">@JuliaPhe</a></li></ul>
-      </div>
-      <div>
-        <h4>Phone</h4>
-        <ul><li><a href="tel:+79672080143">+7 967 208-01-43</a></li></ul>
-      </div>
-      <div>
-        <h4>Code</h4>
-        <ul><li><a href="https://github.com/brownjuly2003-code" target="_blank" rel="noopener">github.com/brownjuly2003-code</a></li></ul>
-      </div>
-      <div>
-        <h4>CV</h4>
-        <ul>
-          <li><a href="cv/Julia_Edomskikh_CV.pdf" download>RU · PDF 121 KB</a></li>
-          <li><a href="cv/Julia_Edomskikh_CV_en.pdf" download>EN · PDF 79 KB</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="foot-meta">
-      <span>Measured 2026-05-12 · all artifacts in /benchmarks</span>
-      <span>Proof Pack v1 · LF · no tracking</span>
-    </div>
-  </div>
-</footer>
-
+</div>
 </body>
 </html>

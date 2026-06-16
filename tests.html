@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Тесты и бенчмарки — Projects to share</title>
+<meta name="description" content="Как получена ключевая цифра каждого проекта: метод, выборка, что доказывает и что нет.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FFE500'/%3E%3Ctext x='16' y='23' font-family='Inter,sans-serif' font-size='20' font-weight='700' fill='%230a0a0a' text-anchor='middle'%3EJ%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--yellow:#FFE500;--ink:#0a0a0a;--ink-2:#3a3a2e;--tab:"tnum" 1,"lnum" 1}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;background:var(--yellow);color:var(--ink);
+  font-size:16px;line-height:1.45;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+::selection{background:var(--ink);color:var(--yellow)}
+.mono{font-family:'JetBrains Mono',ui-monospace,Consolas,monospace}
+.num{font-variant-numeric:tabular-nums lining-nums;font-feature-settings:var(--tab)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1060px;margin:0 auto;padding:0 30px}
+
+.bar{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:14px 0 12px;font-size:13px}
+.bar .who{font-weight:600;letter-spacing:-.01em}
+.bar .who span{color:var(--ink-2);font-weight:500}
+.bar .who span:before{content:" · "}
+.bar a.lnk{font-family:'JetBrains Mono',monospace;font-size:11.5px}
+.bar a.lnk:hover{background:var(--ink);color:var(--yellow)}
+
+.hero{padding:6px 0 20px}
+.hero h1{font-size:clamp(32px,5vw,54px);line-height:.94;letter-spacing:-.04em;font-weight:700;margin:0}
+.hero p{font-size:clamp(14px,1.5vw,16px);line-height:1.45;margin:10px 0 0;max-width:64ch;font-weight:500}
+
+.row{display:grid;grid-template-columns:280px 1fr;column-gap:40px;border-top:2px solid var(--ink);padding:18px 0}
+.row .head h2{font-size:19px;line-height:1.1;letter-spacing:-.018em;font-weight:700;margin:0 0 10px}
+.row .head .val{font-size:32px;line-height:1;letter-spacing:-.035em;font-weight:600;display:flex;align-items:baseline;gap:5px;white-space:nowrap}
+.row .head .val .u{font-size:.4em;color:var(--ink-2);font-weight:600}
+.row .head .val .arr{font-size:.46em;color:var(--ink-2);font-weight:600;margin:0 1px}
+.row .head .k{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:var(--ink-2);margin-top:8px;text-transform:uppercase;letter-spacing:.05em}
+.row .body p{margin:0 0 9px;font-size:14.5px;line-height:1.5}
+.row .body p:last-child{margin-bottom:0}
+.row .body b{font-weight:600}
+.row .body code{font-family:'JetBrains Mono',monospace;font-size:.9em}
+.row .body .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--ink-2);line-height:1.5}
+
+.foot{border-top:2px solid var(--ink);margin-top:8px;padding:16px 0 26px;font-size:12px;color:var(--ink-2);
+  font-family:'JetBrains Mono',monospace;line-height:1.6}
+.foot a{color:var(--ink)}
+.foot a:hover{background:var(--ink);color:var(--yellow)}
+.foot b{color:var(--ink);font-weight:500}
+
+@media(max-width:680px){
+  .row{grid-template-columns:1fr;row-gap:14px}
+  .bar{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="bar">
+    <div class="who">Julia Edomskikh <span>Senior Data Analyst / Data Engineer</span></div>
+    <a class="lnk" href="index.html">← Проекты</a>
+  </header>
+
+  <section class="hero">
+    <h1>Тесты и бенчмарки</h1>
+    <p>Как получена ключевая цифра каждого проекта: метод, выборка и что цифра доказывает — а что нет.</p>
+  </section>
+
+  <article class="row">
+    <div class="head">
+      <h2>AgentFlow</h2>
+      <div class="val num">14<span class="u">ms</span></div>
+      <div class="k">p50 lookup · live</div>
+    </div>
+    <div class="body">
+      <p>Locust, <b>50 параллельных пользователей × 60 с</b>: 506 запросов, p50 = 14 ms, p99 = 280 ms, worst-entity p99 = 330 ms, <b>0 ошибок</b>. Release-gate p99 &lt; 500 ms пройден с запасом.</p>
+      <p class="meta">доказывает: latency entity-API под нагрузкой · не покрывает: качество данных в самом DWH</p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="head">
+      <h2>RAG Support Assistant</h2>
+      <div class="val num">0.99</div>
+      <div class="k">citation acc. · oracle</div>
+    </div>
+    <div class="body">
+      <p>Ручной grounded-oracle на <b>29 кейсах</b>: citation_accuracy = 0.99, recall@5 = 1.00, escalation_accuracy = 1.00 (0 ошибок маршрутизации). Пайплайн: classify → hybrid retrieval → rerank → generate → verify.</p>
+      <p class="meta">доказывает: дисциплину цитирования и отказа · не покрывает: live-качество LLM (отдельный бенчмарк)</p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="head">
+      <h2>AB Test Research Designer</h2>
+      <div class="val num">5</div>
+      <div class="k">проверки до запуска · live</div>
+    </div>
+    <div class="body">
+      <p>Не калькулятор sample-size, а research-design слой до платформы экспериментов. Детерминированные проверки: <b>SRM</b> (χ²), <b>group-sequential</b> O'Brien-Fleming (peeking-safe), <b>CUPED</b> (снижение дисперсии), <b>Bayesian</b> промежуточный взгляд, <b>guardrail</b>-метрики + Bonferroni при &gt;2 вариантах.</p>
+      <p class="meta">верификация: 350+ backend-тестов, coverage 89 %+, Playwright E2E, 7 локалей · сам sample-size = пример-выход, зависит от входа</p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="head">
+      <h2>Auto BI</h2>
+      <div class="val num">1<span class="arr">→</span>2<span class="u">BI</span></div>
+      <div class="k">один spec · live</div>
+    </div>
+    <div class="body">
+      <p>Один BI-агностичный <b>DashboardSpec</b> детерминированно собирается и в Apache Superset, и в Yandex DataLens — обе стороны live-проверены контракт-сьютами на реальном DWH ~15M строк (ClickHouse); Greenplum — интроспекция + feasibility advisor.</p>
+      <p class="meta">eval: 40 golden + 15 advisor кейсов · доказывает: переносимость spec, не вкус дашборда</p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="head">
+      <h2>NL→SQL Assistant</h2>
+      <div class="val num">94.0<span class="u">%</span></div>
+      <div class="k">execution acc. · live</div>
+    </div>
+    <div class="body">
+      <p>BIRD Mini-Dev SQLite (<b>n = 200</b>, set-equality scoring, audit-rescore 0/200): <b>94.0 % EA</b> — выше human-expert baseline (92.96 %) и #1 платной системы AskData+GPT-4o (81.95 %), без fine-tuning, $0 внешних расходов.</p>
+      <p class="meta">честно: ~88 % — переносимый инжиниринг (RAG / fewshot / voting), +6 pp — точечные BIRD-патчи · Chinook 100 % = smoke-проверка</p>
+    </div>
+  </article>
+
+  <article class="row">
+    <div class="head">
+      <h2>GraceKelly</h2>
+      <div class="val num">1.00</div>
+      <div class="k">unstable-claim · simulation</div>
+    </div>
+    <div class="body">
+      <p><b>35 симулированных кейсов</b> (8 категорий) поверх живых <code>gracekelly.core</code>-модулей: unstable-claim detection = 1.00, agreement_cluster_purity = 1.00, abstention_quality = 1.00. False-consensus floor = 0.50 — известный предел unanimity-консенсуса, заявлен честно.</p>
+      <p class="meta">доказывает: механику дискриминации claim'ов · не покрывает: продакшен-эффект на живом трафике</p>
+    </div>
+  </article>
+
+  <footer class="foot">
+    <b>live</b> — работающий продукт / бенчмарк на свежих данных · <b>oracle</b> — ручной набор кейсов с эталоном · <b>simulation</b> — синтетика поверх живых core-модулей.<br>
+    Не всё здесь — live-метрика, и это помечено. <a href="index.html">← вернуться к проектам</a>
+  </footer>
+
+</div>
+</body>
+</html>
